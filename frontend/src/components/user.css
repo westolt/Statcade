@@ -4,15 +4,17 @@
     flex-wrap: wrap;
     padding: 1rem;
     border-radius: 20px;
-    background-color: rgb(66, 31, 7);
-    border: 8px solid rgb(83, 46, 11);
+    background-color: #1e222b;
+    border: 5px solid #292f3b;
     width: 200px;
 }
 
 .name {
-    font-family: garamond;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 30px;
-    color: rgb(226, 215, 215);
+    color: #ddca8d;
     text-align: center;
     margin: 0;
 }
@@ -40,6 +42,7 @@
     transition: opacity 0.3s ease;
     border-radius: 8px;
     pointer-events: none;
+    color: #ddca8d;
 }
 
 .image-button:hover .overlay {
@@ -50,7 +53,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 3px solid #262b36;
     border-radius: 5px;
     overflow: hidden;
     min-height: 0;
@@ -62,25 +65,29 @@
 }
 
 .game_name {
-    font-family: 'Garamond';
-    color: rgb(226, 215, 215);
-    padding-left: 5px;
-    border-bottom: 1px solid #ccc;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ddca8d;
+    padding: 5px;
+    border-bottom: 3px solid #292f3b;
 }
 
 .user_score_row {
     display: flex;
     flex-direction: row;
-    font-family: 'Garamond';
-    color: rgb(226, 215, 215);
-    background-color: rgb(24, 23, 23);
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ddca8d;
+    background-color: #181b22;
     width: 100%;  
 }
 
 .score_label {
     width: 50%;
-    padding-left: 5px;
-    border-right: 1px solid #ccc;
+    padding: 5px;
+    border-right: 3px solid #262b36;
 }
 
 .user_score {
@@ -94,10 +101,12 @@
 .other_stats {
     display: flex;
     flex-direction: row;
-    font-family: 'Garamond';
-    color: rgb(226, 215, 215);
-    background-color: rgb(24, 23, 23);
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ddca8d;
+    background-color: #181b22;
     width: 100%;
-    border-top: 1px solid #ccc;
-    padding-left: 5px;
+    border-top: 3px solid #262b36;
+    padding: 5px;
 }

@@ -4,7 +4,7 @@ const Textbox = ({ message }) => {
 
     return(
         <div className='box'>
-            <p className='text'>{ message }</p>
+            <div className='text'>{ message }</div>
         </div>
     )
 }

@@ -2,13 +2,12 @@
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    border: 8px solid rgb(83, 46, 11);
-    background-color: rgb(66, 31, 7);
+    border: 5px solid #292f3b;
+    background-color: #1e222b;
     width: 520px;
     height: auto;
-    max-height: 520px;
-    height: auto;
-    padding: 10px;
+    max-height: 500px;
+    padding: 1rem;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -16,8 +15,12 @@
 h2 {
     display: flex;
     justify-content: center;
-    font-family: Garamond;
-    color: white;
+    justify-items: flex-start;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #ddca8d;
 }
 
 .filters {
@@ -30,28 +33,48 @@ h2 {
 select {
     height: 23px;
     width: 80px;
-    color: white;
-    background-color: rgb(36, 17, 4);
+    color: #ddca8d;
+    background-color: #1e222b;
+    border-radius: 5px;
+    border: 2px solid #292f3b;
+}
+
+select:focus {
+    border: 2px solid #292f3b;
+    box-shadow: 0 0 0 2px #292f3b;
 }
 
 input {
     width: 120px;
+    color: #ddca8d;
+    background-color: #1e222b;
+    border-radius: 5px;
+    border: 2px solid #292f3b;
+}
+
+input:focus {
+    border: 2px solid #292f3b;
+    box-shadow: 0 0 0 2px #292f3b;
 }
 
 .score_table {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 3px solid #292f3b;
+    background-color: #1e222b;
     overflow: hidden;
     min-height: 0;
 }
 
 .scores {
-    font-family: Garamond;
-    color: white;
-    background-color: rgb(24, 23, 23);
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ddca8d;
+    background-color: #181b22;
+    border-top: 3px solid #292f3b;
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
@@ -60,10 +83,7 @@ input {
 
 .score_row {
     display: flex;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    color: white;
-    border-bottom: 1px solid #ccc;
+    color: #ddca8d;
     box-sizing: border-box;
     flex-wrap: nowrap;
     width: 100%;  
@@ -72,13 +92,11 @@ input {
 .score_cell {
   flex: 1;
   text-align: left;
-  padding: 2px;
-  box-sizing: border-box;
-  word-wrap: break-word;
+  padding: 3px;
   overflow: hidden;
 }
 
-.score_cell:nth-child(1) { flex: 1; border-right: 1px solid #ccc; }
-.score_cell:nth-child(2) { flex: 1; border-right: 1px solid #ccc; }
-.score_cell:nth-child(3) { flex: 1; text-align: center; border-right: 1px solid #ccc; }
+.score_cell:nth-child(1) { flex: 1; border-right: 3px solid #292f3b; }
+.score_cell:nth-child(2) { flex: 1; border-right: 3px solid #292f3b; }
+.score_cell:nth-child(3) { flex: 1; text-align: center; border-right: 3px solid #292f3b; }
 .score_cell:nth-child(4) { flex: 1; text-align: left; }

@@ -1,13 +1,17 @@
 .box {
-    clear: both;
-    background-color: #e0deda;
-    padding: 3rem;
-    border-radius: 20px;
-    border: 10px solid #472d0b;
+    width: 500px;
+    height: 80px;
+    background-color: #1e222b;
+    border-radius: 5px;
+    border: 5px solid #292f3b;
+    padding: 10px;
 }
 
 .text {
-    font-family: 'Press Start 2P';
-    color: rgb(0, 0, 0);
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    color: #ddca8d;
     margin: 0;
 }
