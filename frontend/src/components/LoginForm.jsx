@@ -27,41 +27,31 @@ const LoginFrom = ({ setUser }) => {
                 setMessage('Wrong credentials')
                 setTimeout(() => {
                     setMessage(null)
-                }, 5000)
+                }, 3000)
             }
         }
 
     return(
         <div>
             <Message message={message}/>
-            <form onSubmit={handleLogin}>
-                <div>
-                <label style={{
-                color: 'white',
-                fontFamily: 'Garamond'
-                }}>
-                    Username
+            <form className='loginbox' onSubmit={handleLogin}>
+                <div className='login'>
+                <label className="sr-only">Username</label>
                     <input
                     type="text"
+                    placeholder='Username'
                     value={username}
                     onChange={({ target }) => setUsername(target.value)}
                     />
-                </label>
-                </div>
-                <div>
-                <label style={{
-                color: 'white',
-                fontFamily: 'Garamond'
-                }}>
-                    Password
+                <label className="sr-only">Password</label>
                     <input
                     type="password"
+                    placeholder='Password'
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                     />
-                </label>
                 </div>
-                <button type="submit">login</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

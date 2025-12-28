@@ -13,6 +13,7 @@ const User = () => {
     const [scores, setScores] = useState([])
     const [userScores, setUserScores] = useState([])
     const [profilePictureFile, setProfilePictureFile] = useState(null)
+    const [isVisible, setIsVisible] = useState(true)
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedUser')
@@ -61,6 +62,7 @@ const User = () => {
         )
     }
 
+
     return (
     <div className="user_box">
         {user ? (
@@ -82,8 +84,9 @@ const User = () => {
             <>
             <p className='name'>Guest</p>
             <img className="picture" src={guest} alt="Profile picture" />
-            <LoginFrom setUser={setUser}/>
-            <Register setUser={setUser}/>
+            <button onClick={() => setIsVisible(true)}>Login</button>
+            <button onClick={() => setIsVisible(false)}>Register</button>
+             {isVisible ? <LoginFrom setUser={setUser}/> : <Register setUser={setUser}/>}
             </>
         )}
     </div>

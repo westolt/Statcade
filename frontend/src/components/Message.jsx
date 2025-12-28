@@ -1,10 +1,11 @@
+import './message.css'
+
 const Message = ({ message }) => {
-    if (!message) return null
-    return(
-    <div>
-        <p>{ message }</p>
+  return (
+    <div className={`message ${message ? 'show' : ''}`}>
+      {message}
     </div>
-    )
+  )
 }
 
 export default Message
