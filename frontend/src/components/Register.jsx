@@ -1,19 +1,10 @@
 import { useState } from 'react'
 import userService from '../services/users'
-import Message from './Message'
 
-const Register = ({ setUser }) => {
+const Register = ({ setUser, showMessage }) => {
     const [username, setUsername] = useState('') 
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
-    const [message, setMessage] = useState(null)
-
-    const showMessage = (info) => {
-        setMessage(info)
-        setTimeout(() => {
-            setMessage(null)
-        }, 5000)
-    }
 
     const handleRegister = async event => {
         event.preventDefault()
@@ -35,63 +26,51 @@ const Register = ({ setUser }) => {
                 )
 
                 userService.setToken(user.token)
-                console.log('TOKEN: ', user.token)
-                setUser(user)
 
+                setUser(user)
+                showMessage('User created successfully!')
                 setUsername('')
                 setPassword('')
                 setPassword2('')
             } catch (error) {
                 console.log('Error during registration: ', error)
                 showMessage('Username already taken!')
+                return
             }
         }
     }
 
     return(
         <div>
-            <Message message={message}/>
             <form onSubmit={handleRegister}>
-                <div>
-                <label style={{
-                color: 'white',
-                fontFamily: 'Garamond'
-                }}>
-                    Give username
+                <div className='register'>
+                 <label className="sr-only">Register username</label>
                     <input
                     type='text'
+                    placeholder='Username'
                     value={username}
                     onChange={({ target }) => setUsername(target.value)}
                     />
-                </label>
                 </div>
-                <div>
-                <label style={{
-                color: 'white',
-                fontFamily: 'Garamond'
-                }}>
-                    Give password
+                <div className='register'>
+                 <label className="sr-only">Register password</label>
                     <input
                     type='password'
+                    placeholder='Password'
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                     />
-                </label>
                 </div>
-                <div>
-                <label style={{
-                color: 'white',
-                fontFamily: 'Garamond'
-                }}>
-                    Give password again
+                <div className='register'>
+                <label className="sr-only">Register password again</label>
                     <input
                     type='password'
+                    placeholder='Verify password'
                     value={password2}
                     onChange={({ target }) => setPassword2(target.value)}
                     />
-                </label>
                 </div>
-                <button type="submit">Submit</button>
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )

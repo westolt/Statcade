@@ -4,16 +4,16 @@
 
 .message {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) translateY(20px);
+    top: 0;
+    left: 0;
+    transform: translateY(-10px);
     
     opacity: 0;
     pointer-events: none;
 
     font-family: "Questrial", sans-serif;
     font-weight: 400;
-    font-size: large;
+    font-size: 25px;
     color: #e7996c;
     background-color: #1e222b;
     border-radius: 5px;
@@ -23,8 +23,8 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.message.show {
-    transform: translate(-50%, -50%) translateY(0);
+.message.show, .good.show {
+    transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
 }

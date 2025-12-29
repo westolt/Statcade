@@ -4,6 +4,7 @@ import scoreService from '../services/scores'
 import UserStatistics from './UserStatistics'
 import LoginFrom from './LoginForm'
 import Register from './Register'
+import Message from './Message'
 import guest from '../assets/guest.png'
 import ImageButton from './ImageButton'
 import './user.css'
@@ -14,6 +15,7 @@ const User = () => {
     const [userScores, setUserScores] = useState([])
     const [profilePictureFile, setProfilePictureFile] = useState(null)
     const [isVisible, setIsVisible] = useState(true)
+    const [message, setMessage] = useState(null)
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedUser')
@@ -62,8 +64,17 @@ const User = () => {
         )
     }
 
+    const showMessage = (info) => {
+        setMessage(info)
+        setTimeout(() => {
+            setMessage(null)
+        }, 3000)
+    }
+
 
     return (
+    <div>
+        <Message message={message} />
     <div className="user_box">
         {user ? (
             <>
@@ -86,9 +97,11 @@ const User = () => {
             <img className="picture" src={guest} alt="Profile picture" />
             <button onClick={() => setIsVisible(true)}>Login</button>
             <button onClick={() => setIsVisible(false)}>Register</button>
-             {isVisible ? <LoginFrom setUser={setUser}/> : <Register setUser={setUser}/>}
+             {isVisible ? <LoginFrom setUser={setUser} showMessage={showMessage}/>
+                        : <Register setUser={setUser} showMessage={showMessage}/>}
             </>
         )}
+    </div>
     </div>
     )
 }
