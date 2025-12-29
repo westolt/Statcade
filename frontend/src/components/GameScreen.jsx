@@ -4,7 +4,7 @@ const GameScreen = ({ game }) => {
                 <iframe
                 src={`${game.url}?id=${game.id}`}
                 title={game.name}
-                width='1000'
+                width='810'
                 height='680'
                 style={{ border: 0}}
                 />

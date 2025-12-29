@@ -13,43 +13,50 @@
 }
 
 .scoreboard-position {
-  padding-top: 5%;
+  width: 30%;
 }
 
 .gamescreen-position {
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  width: 70%;
 }
 
 .scoreboard {
-  list-style: none;
-  padding: 0;
-  clear: both;
-  background-color: rgb(66, 31, 7);
-  padding: 30px;
-  border-radius: 25px;
-  border: 3px solid #472d0b;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 5px solid #292f3b;
+  background-color: #1e222b;
+  width: 520px;
+  height: auto;
+  max-height: 500px;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .scoretext {
   display: flex;
   flex-direction: row;
-  font-family: Garamond;
-  color: rgb(255, 255, 255);
-  background-color: rgb(24, 23, 23);
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ddca8d;
+  background-color: #181b22;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 3px solid #292f3b;
 }
 
 .rank {
   width: 10%;
   padding-left: 5px;
-  border-right: 1px solid #ccc;
+  border-right: 3px solid #292f3b;
 }
 
 .top_name {
   width: 40%;
-  border-right: 1px solid #ccc;
+  border-right: 3px solid #292f3b;
   padding-bottom: 5px;
   padding-left: 5px;
 }
