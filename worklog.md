@@ -57,4 +57,5 @@
 | 27.12 | 2        | Add restart, random, and choose text buttons. Implement selection of specific paragraphs and reset functionality for current game in [TypingGame](https://github.com/westolt/TypingGame.git)|
 |       | 2        | Display current WPM in real time while typing. Fix calculation formula and ensure WPM resets correctly when starting a new game |
 |       | 2        | Add ability to save user score to backend via scoreService. Fix handleTyping logic to be compatible with async score submission. |
-| total | 129      |                                                                                                                               |
+| 28.12 | 4        | Refactor message display, update registration view, redesign Top 110 scoreboard, and update Home page layout. Improve User.jsx, Login.jsx and Message.jsx styling and replace guest image |
+| total | 133      |                                                                                                                               |
