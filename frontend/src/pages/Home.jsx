@@ -16,7 +16,7 @@ const Home = ({ games }) => {
             <div className='list'><GameList games={games} hoverChange={setHoverId}/></div>
             <div className='textbox'><TextBox message={hoveredGame ? hoveredGame.description : 'Welcome to Statcade!'}/></div>
         </div>
-        <Statistics />
+        <div className='stats-position'><Statistics /></div>
     </div>
     )
 }
