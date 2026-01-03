@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const { SECRET } = require('../util/config')
 const cloudinary = require('../util/cloudinary')
 const { tokenExtractor, upload } = require('../util/middleware')
-const User = require('../models/user')
+const { User, Reward } = require('../models')
 
 router.get('/', async (req, res) => {
     const users = await User.findAll({
