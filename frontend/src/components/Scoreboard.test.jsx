@@ -20,7 +20,7 @@ test('renders top 10 scores correctly', () => {
   render(<Scoreboard scoreboard={scores} />)
 
 
-  expect(screen.getByText('TOP 10 Highscores:')).toBeInTheDocument()
+  expect(screen.getByText('Top 10 Highscores:')).toBeInTheDocument()
 
   expect(screen.getByText('Venla')).toBeInTheDocument()
   expect(screen.getByText('100')).toBeInTheDocument()
