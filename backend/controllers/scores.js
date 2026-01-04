@@ -43,7 +43,7 @@ router.get('/game/:id', async (req, res) => {
 
 router.post('/', tokenExtractor, async (req, res) => {
     const decoded = req.decodedToken
-    const user_id = decoded.id
+    const userId = decoded.id
 
     const { score, gameId } = req.body
 
@@ -51,9 +51,8 @@ router.post('/', tokenExtractor, async (req, res) => {
         return res.status(400).json({ error: 'Missing score or gameId' })
     }
 
-    const game_id = gameId
     const current_score = await Score.findOne({
-        where: { user_id, game_id }
+        where: { userId, gameId }
     })
 
     if (current_score) {
@@ -65,13 +64,12 @@ router.post('/', tokenExtractor, async (req, res) => {
             res.json(current_score)
         }
     } else {
-        console.log("CREATE OBJECT:", { score, user_id, game_id })
-        const new_score = await Score.create({
+        const newScore = await Score.create({
             score,
-            user_id,
-            game_id
+            userId,
+            gameId
         })
-        res.json(new_score)
+        res.json(newScore)
     }
 })
 

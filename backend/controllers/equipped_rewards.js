@@ -14,6 +14,7 @@ router.post('/', tokenExtractor, async (req, res) => {
         return res.status(400).json({ error: 'User not found'})
     }
 
+    const userId = user.id
     const { gameId, rewardId, slot } = req.body
 
     if (slot === 'USERNAME_FONT' && gameId !== null) {
@@ -25,7 +26,7 @@ router.post('/', tokenExtractor, async (req, res) => {
     }
 
     const unlocked = await UserReward.findOne({
-        where: { userId: user.id, rewardId: rewardId },
+        where: { userId, rewardId },
     })
 
     if (!unlocked) {
@@ -34,17 +35,17 @@ router.post('/', tokenExtractor, async (req, res) => {
 
     await EquippedReward.destroy({
         where: {
-        userId: user.id,
+        userId,
         slot,
-        gameId: gameId,
+        gameId,
         },
     })
 
     const newEquip = await EquippedReward.create({
-        userId: user.id,
-        rewardId: rewardId,
+        userId,
+        rewardId,
         slot,
-        gameId: gameId,
+        gameId,
     })
 
     res.json(newEquip)
