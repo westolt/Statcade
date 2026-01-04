@@ -51,17 +51,17 @@ router.post('/', tokenExtractor, async (req, res) => {
         return res.status(400).json({ error: 'Missing score or gameId' })
     }
 
-    const current_score = await Score.findOne({
+    const currentScore = await Score.findOne({
         where: { userId, gameId }
     })
 
-    if (current_score) {
-        if (current_score.score >= score) {
-            res.json(current_score)
+    if (currentScore) {
+        if (currentScore.score >= score) {
+            res.json(currentScore)
         } else {
-            current_score.score = score
-            await current_score.save()
-            res.json(current_score)
+            currentScore.score = score
+            await currentScore.save()
+            res.json(currentScore)
         }
     } else {
         const newScore = await Score.create({
