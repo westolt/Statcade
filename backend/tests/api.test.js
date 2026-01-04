@@ -36,21 +36,21 @@ const initialGames = [
     description: 'A quiz game about the periodic table.',
     url: '/static-games/PeriodicPairs/index.html',
     thumbnail: '/static-games/PeriodicPairs/game1.png',
-    how_to_play: 'Type the full name of the chemical element that matches the symbol shown on the screen and click Submit.'
+    howToPlay: 'Type the full name of the chemical element that matches the symbol shown on the screen and click Submit.'
   },
   {
     name: 'Test',
     description: 'This is a test',
     url: 'static-games/Test/index.html',
     thumbnail: 'static-games/Test/photo.png',
-    how_to_play: 'This is only a test'
+    howToPlay: 'This is only a test'
   },
   {
     name: 'Typing game',
     description: 'Type fast',
     url: 'static-games/Typing_game/index.html',
     thumbnail: 'static-games/Typing_game/photo.png',
-    how_to_play: 'Type the text on the screen'
+    howToPlay: 'Type the text on the screen'
   },
 ]
 
@@ -187,7 +187,7 @@ test('all games are returned', async () => {
     assert.ok(game.name)
     assert.ok(game.description)
     assert.ok(game.url)
-    assert.ok(game.how_to_play)
+    assert.ok(game.howToPlay)
   })
 })
 
@@ -231,8 +231,8 @@ test('posting a new score works', async () => {
     .expect(200)
 
   assert.strictEqual(res.body.score, newScore.score)
-  assert.strictEqual(res.body.user_id, user.id)
-  assert.strictEqual(res.body.game_id, game.id)
+  assert.strictEqual(res.body.userId, user.id)
+  assert.strictEqual(res.body.gameId, game.id)
 })
 
 test('score is updated only if new score is higher', async () => {
@@ -240,7 +240,7 @@ test('score is updated only if new score is higher', async () => {
   const game = await Game.findOne({ where: { name: 'PeriodicPairs' }})
   const token = jwt.sign({ id: user.id, username: user.username, }, SECRET)
 
-  await Score.create({ score: 50, user_id: user.id, game_id: game.id })
+  await Score.create({ score: 50, userId: user.id, gameId: game.id })
 
   const res = await api
     .post('/api/scores')
@@ -279,8 +279,8 @@ test('get game top 10 scoreboard by game id', async () => {
   const user2 = await User.findOne({ where: { username: 'venla' }})
   const game = await Game.findOne({ where: { name: 'PeriodicPairs' }})
 
-  await Score.create({ score: 50, user_id: user1.id, game_id: game.id })
-  await Score.create({ score: 100, user_id: user2.id, game_id: game.id })
+  await Score.create({ score: 50, userId: user1.id, gameId: game.id })
+  await Score.create({ score: 100, userId: user2.id, gameId: game.id })
 
   const res = await api
     .get(`/api/scores/game/${game.id}`)
