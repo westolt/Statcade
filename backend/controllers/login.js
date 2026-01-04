@@ -33,7 +33,6 @@ router.post('/', async (req, res) => {
   res
     .status(200)
     .send({ token, username: user.username, image: user.image })
-    console.log('Logged in!')
 })
 
 module.exports = router

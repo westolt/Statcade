@@ -42,8 +42,7 @@ router.get('/game/:id', async (req, res) => {
 })
 
 router.post('/', tokenExtractor, async (req, res) => {
-    const decoded = req.decodedToken
-    const userId = decoded.id
+    const userId = req.decodedToken.id
 
     const { score, gameId } = req.body
 

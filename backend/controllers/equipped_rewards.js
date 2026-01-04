@@ -7,14 +7,31 @@ router.get('/', async (req, res) => {
     res.json(equipped_rewards)
 })
 
-router.post('/', tokenExtractor, async (req, res) => {
-    const user = await User.findByPk(req.decodedToken.id)
+router.delete('/', tokenExtractor,async (req, res) => {
+    const userId = req.decodedToken.id
+    const {slot, gameId} = req.body
+    const deleted = await EquippedReward.destroy({
+        where: {
+        userId,
+        slot,
+        gameId,
+        }
+    })
 
-    if (!user) {
+    if (deleted === 0) {
+        return res.status(404).json({ error: 'Equipped reward not found'})
+    }
+
+    res.end()
+})
+
+router.post('/', tokenExtractor, async (req, res) => {
+    const userId = req.decodedToken.id
+
+    if (!userId) {
         return res.status(400).json({ error: 'User not found'})
     }
 
-    const userId = user.id
     const { gameId, rewardId, slot } = req.body
 
     if (slot === 'USERNAME_FONT' && gameId !== null) {
@@ -38,7 +55,7 @@ router.post('/', tokenExtractor, async (req, res) => {
         userId,
         slot,
         gameId,
-        },
+        }
     })
 
     const newEquip = await EquippedReward.create({
