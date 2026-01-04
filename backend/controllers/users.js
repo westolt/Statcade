@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 const { SECRET } = require('../util/config')
 const cloudinary = require('../util/cloudinary')
 const { tokenExtractor, upload } = require('../util/middleware')
-const { User, Reward } = require('../models')
+const { User, Reward, EquippedReward, Game } = require('../models')
 
 router.get('/', async (req, res) => {
     const users = await User.findAll({
         include: {
             model: Reward,
             as: 'unlockedRewards',
-            attributes: ['rewardName', 'requiredScore'],
+            attributes: ['rewardName'],
             through: {
                 attributes: []
             }
@@ -21,6 +21,29 @@ router.get('/', async (req, res) => {
         }
     })
     res.json(users)
+})
+
+router.get('/:id', async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: [ 
+            {
+                model: Reward,
+                as: 'unlockedRewards',
+                attributes: ['rewardName'],
+                through: {
+                    attributes: []
+                }
+            },
+            {
+                model: EquippedReward,
+                as: 'equippedRewards',
+            }
+        ],
+        attributes: {
+            exclude: ['passwordHash']
+        }
+    })
+    res.json(user)
 })
 
 router.post('/', async (req, res, next) => {
