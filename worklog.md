@@ -60,4 +60,6 @@
 | 28.12 | 4        | Refactor message display, update registration view, redesign Top 110 scoreboard, and update Home page layout. Improve User.jsx, Login.jsx and Message.jsx styling and replace guest image |
 | 2.1   | 2        | Learned how to create blinking cursor effect with CSS for [TypingGame](https://github.com/westolt/TypingGame.git). A [youtube tutorial](https://www.youtube.com/watch?v=vsKYZj-XskI&t=1s) was helpful for understanding animations, but using border-left caused the cursor to collide with letters and shift them slightly. Solved this by switching to a ::after pseudo-element, which fixes the issue. Got help from this [video](https://www.youtube.com/watch?v=dIUOWdwwZBw) |
 |       | 6        | Update Typing Game UI and improve typing flow by adding cursor. Add a thumbnail to TypingGame and adjust the homepage layout of UserBox, GameList, TextBox, and Statistics |
-| total | 141      |                                                                                                                               |
+|  3.1  | 3        | Design how to implement award system to Statcade. Evaluate different data models and decide on many-to-many structure between users and rewards  |
+|       | 2        | Add Reward model, migration, and controller, add many-to-many connection between User and Reward through UserReward  |
+| total | 146      |                                                                                                                               |
