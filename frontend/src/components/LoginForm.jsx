@@ -17,7 +17,6 @@ const LoginFrom = ({ setUser, showMessage }) => {
                 )
 
                 userService.setToken(user.token)
-                console.log('TOKEN: ', user.token)
                 setUser(user)
                 setUsername('')
                 setPassword('')
