@@ -34,7 +34,7 @@ const Play = ({ games }) => {
                         <Scoreboard scoreboard={scoreboard}/>
                     </div>
                 </div>
-                <Textbox message={game.how_to_play}/>
+                <Textbox message={game.howToPlay}/>
             </div>
         </div>
     )
