@@ -8,6 +8,14 @@ const { User, Reward } = require('../models')
 
 router.get('/', async (req, res) => {
     const users = await User.findAll({
+        include: {
+            model: Reward,
+            as: 'unlockedRewards',
+            attributes: ['rewardName', 'requiredScore'],
+            through: {
+                attributes: []
+            }
+        },
         attributes: {
             exclude: ['passwordHash']
         }

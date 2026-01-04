@@ -37,12 +37,13 @@ select {
     background-color: #1e222b;
     border-radius: 5px;
     border: 2px solid #292f3b;
+    cursor: pointer;
 }
 
-select:focus {
-    border: 2px solid #292f3b;
-    box-shadow: 0 0 0 2px #292f3b;
+select:hover {
+    background-color: #181b22;;
 }
+
 
 input {
     width: 120px;
@@ -50,11 +51,6 @@ input {
     background-color: #1e222b;
     border-radius: 5px;
     border: 2px solid #292f3b;
-}
-
-input:focus {
-    border: 2px solid #292f3b;
-    box-shadow: 0 0 0 2px #292f3b;
 }
 
 .score_table {
