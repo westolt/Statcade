@@ -91,8 +91,6 @@ router.put('/image', tokenExtractor, upload, async (req, res) => {
         return res.status(400).json({ error: 'User not found'})
     }
 
-    console.log('This is publicId: ', user.imagePublicId)
-
     if(user.imagePublicId) {
         await cloudinary.uploader.destroy(user.imagePublicId)
     }

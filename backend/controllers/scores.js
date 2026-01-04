@@ -19,10 +19,10 @@ router.get('/', async (req, res) => {
     res.json(scores)
 })
 
-router.get('/game/:gameId', async (req, res) => {
+router.get('/game/:id', async (req, res) => {
     const scores = await Score.findAll({
         where: {
-            game_id: req.params.gameId
+            gameId: req.params.id
         },
         order: [['score', 'DESC']],
         limit: 10,

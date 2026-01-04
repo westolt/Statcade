@@ -5,26 +5,26 @@ const Reward = require('./reward')
 const UserReward = require('./user_reward')
 const EquippedReward = require('./equipped_reward')
 
-User.hasMany(Score, { foreignKey: 'user_id' })
-Score.belongsTo(User, { foreignKey: 'user_id' })
+User.hasMany(Score)
+Score.belongsTo(User)
 
-Game.hasMany(Score, { foreignKey: 'game_id' })
-Score.belongsTo(Game, { foreignKey: 'game_id' })
+Game.hasMany(Score)
+Score.belongsTo(Game)
 
-Game.hasMany(Reward, { foreignKey: 'game_id' })
-Reward.belongsTo(Game, { foreignKey: 'game_id' })
+Game.hasMany(Reward)
+Reward.belongsTo(Game)
 
-User.belongsToMany(Reward, { through: UserReward, as: 'unlockedRewards', foreignKey: 'user_id' })
-Reward.belongsToMany(User, { through: UserReward, as: 'usersUnlocked', foreignKey: 'reward_id' })
+User.belongsToMany(Reward, { through: UserReward, as: 'unlockedRewards' })
+Reward.belongsToMany(User, { through: UserReward, as: 'usersUnlocked' })
 
-User.hasMany(EquippedReward, { foreignKey: 'user_id', as: 'equippedRewards' })
-EquippedReward.belongsTo(User, { foreignKey: 'user_id' })
+User.hasMany(EquippedReward, { as: 'equippedRewards' })
+EquippedReward.belongsTo(User)
 
-Game.hasMany(EquippedReward, { foreignKey: 'game_id', as: 'equippedRewards' })
-EquippedReward.belongsTo(Game, { foreignKey: 'game_id' })
+Game.hasMany(EquippedReward, { as: 'equippedRewards' })
+EquippedReward.belongsTo(Game)
 
-Reward.hasMany(EquippedReward, { foreignKey: 'reward_id', as: 'equippedRewards' })
-EquippedReward.belongsTo(Reward, { foreignKey: 'reward_id' })
+Reward.hasMany(EquippedReward, { as: 'equippedRewards' })
+EquippedReward.belongsTo(Reward)
 
 module.exports = {
     Game, User, Score, Reward, UserReward, EquippedReward
