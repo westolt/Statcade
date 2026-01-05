@@ -17,7 +17,13 @@ const LoginFrom = ({ setUser, showMessage }) => {
                 )
 
                 userService.setToken(user.token)
-                setUser(user)
+
+                const fullUser = await userService.getOne(user.id)
+
+                setUser({
+                    ...fullUser,
+                    token: user.token
+                })
                 setUsername('')
                 setPassword('')
             } catch {

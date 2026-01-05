@@ -19,15 +19,20 @@ const Register = ({ setUser, showMessage }) => {
             return
         } else {
             try {
-                const user= await userService.createAccount({ username, password })
+                const newUser= await userService.createAccount({ username, password })
 
                 window.localStorage.setItem(
-                    'loggedUser', JSON.stringify(user)
+                    'loggedUser', JSON.stringify(newUser)
                 )
 
-                userService.setToken(user.token)
+                userService.setToken(newUser.token)
 
-                setUser(user)
+                const fullUser = await userService.getOne(newUser.id)
+
+                setUser({
+                    ...fullUser,
+                    token: newUser.token
+                })
                 showMessage('User created successfully!')
                 setUsername('')
                 setPassword('')

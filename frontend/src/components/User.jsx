@@ -18,12 +18,20 @@ const User = () => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
-        const loggedUserJSON = window.localStorage.getItem('loggedUser')
-        if (loggedUserJSON) {
-            const user = JSON.parse(loggedUserJSON)
-            setUser(user)
-            userService.setToken(user.token)
+        const fetchUser = async () => {
+            const loggedUserJSON = window.localStorage.getItem('loggedUser')
+            if (loggedUserJSON) {
+                const loggedUser = JSON.parse(loggedUserJSON)
+                userService.setToken(loggedUser.token)
+
+                const fullUser = await userService.getOne(loggedUser.id)
+                setUser({
+                    ...fullUser,
+                    token: loggedUser.token
+                })
+            }
         }
+        fetchUser()
     }, [])
 
     useEffect(() => {
@@ -70,7 +78,6 @@ const User = () => {
             setMessage(null)
         }, 3000)
     }
-
 
     return (
     <div>

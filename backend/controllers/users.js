@@ -71,6 +71,7 @@ router.post('/', async (req, res, next) => {
 
         res.status(200).json({
             token,
+            id: user.id,
             username: user.username,
             image: user.image
         })

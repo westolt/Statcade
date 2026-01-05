@@ -12,6 +12,11 @@ const createAccount = async newObject => {
     return res.data
 }
 
+const getOne = async (id) => {
+    const req = await axios.get(`${baseUrl}/${id}`)
+    return req.data
+}
+
 const updateImage = async (formData) => {
     const config = {
         headers: {
@@ -23,4 +28,4 @@ const updateImage = async (formData) => {
     return res.data
 }
 
-export default { createAccount, updateImage, setToken }
+export default { setToken, getOne, createAccount, updateImage }

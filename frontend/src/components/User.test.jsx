@@ -19,7 +19,15 @@ vi.mock('../services/scores', () => ({
 vi.mock('../services/users', () => ({
   default: {
     setToken: vi.fn(),
-    updateImage: vi.fn()
+    updateImage: vi.fn(),
+    getOne: vi.fn(() =>
+      Promise.resolve({
+        id: 1,
+        username: 'testuser',
+        unlockedRewards: [],
+        equippedRewards: []
+      })
+    )
   }
 }))
 
@@ -35,7 +43,7 @@ test('shows login and register when not logged in', () => {
 beforeEach(() => {
   window.localStorage.setItem(
     'loggedUser',
-    JSON.stringify({ username: 'testuser', token: '123' })
+    JSON.stringify({ id: 1, username: 'testuser', token: '123' })
   )
 })
 
