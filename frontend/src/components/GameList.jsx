@@ -19,7 +19,7 @@ const GameList = ({ games, hoverChange }) => {
                     name={game.name}
                     image={game.thumbnail}
                     onClick={() => handleClick(game.id)}
-                    onMouseEnter={()=>hoverChange(game.id)}
+                    onMouseEnter={()=>hoverChange(game)}
                     onMouseLeave={()=>hoverChange(null)}
                         />
             )}

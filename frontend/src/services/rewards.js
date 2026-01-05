@@ -1,5 +1,5 @@
 import axios from 'axios'
-import baseUrl from '/api/rewards'
+const baseUrl = '/api/rewards'
 
 const getAll = async () => {
     const req = await axios.get(baseUrl)

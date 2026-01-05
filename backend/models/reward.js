@@ -23,6 +23,14 @@ Reward.init({
   requiredScore: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  instructions: {
+    type: DataTypes.TEXT,
+    allowNull: true,
   }
 }, {
   sequelize,

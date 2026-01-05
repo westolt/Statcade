@@ -1,6 +1,4 @@
-import './gamebutton.css'
-
-const GameButton = ({ name, image, onClick, onMouseEnter, onMouseLeave }) => {
+const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave }) => {
 
   return (
     <button
@@ -18,4 +16,4 @@ const GameButton = ({ name, image, onClick, onMouseEnter, onMouseLeave }) => {
   )
 }
 
-export default GameButton
+export default RewardButton
