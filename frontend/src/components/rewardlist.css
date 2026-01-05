@@ -4,8 +4,8 @@
     flex-direction: row;
     border: 5px solid #292f3b;
     background-color: #1e222b;
-    gap: 1em;
-    padding: 5px;
+    gap: 0.5em;
+    padding: 0.5em;
 }
 
 .reward-button {
@@ -13,6 +13,13 @@
     width: 100px;
     background-color: #181b22;
     border: 0;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reward-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .loading {
