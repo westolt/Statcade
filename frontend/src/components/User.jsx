@@ -16,6 +16,12 @@ const User = () => {
     const [profilePictureFile, setProfilePictureFile] = useState(null)
     const [isVisible, setIsVisible] = useState(true)
     const [message, setMessage] = useState(null)
+    const getEquippedReward = (user, slot) => {
+        if (!user || !user.equippedRewards) return null
+        return user.equippedRewards.find(r => r.slot === slot) || null
+    }
+    const usernameFont = user ? getEquippedReward(user, 'USERNAME_FONT') : null
+
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -39,7 +45,7 @@ const User = () => {
             scoreService.getAll().then(data => {
                 setScores(data)
             })
-    }
+        }
     }, [user])
 
     useEffect(() => {
@@ -85,7 +91,7 @@ const User = () => {
     <div className="user_box">
         {user ? (
             <>
-            <p className='name'>{user.username}</p>
+            <p className={`name ${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>{user.username}</p>
             <button onClick={handleLogout}>Logout</button>
             <ImageButton
                 image={user?.image || guest}

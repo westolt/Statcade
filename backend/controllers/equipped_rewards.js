@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { tokenExtractor } = require('../util/middleware')
-const { EquippedReward, User, UserReward } = require('../models/index')
+const { EquippedReward, UserReward } = require('../models/index')
 
 router.get('/', async (req, res) => {
     const equipped_rewards = await EquippedReward.findAll()
