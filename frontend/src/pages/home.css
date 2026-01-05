@@ -1,7 +1,14 @@
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
+}
+
+.middle-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .userbox {
@@ -9,27 +16,23 @@
     flex-direction: column;
     align-items: center;
     width: 30%;
-    margin-top: 3vh;
 }
 
-.middle-area {
+.lists {
+    display: flex;
+    justify-content: center;
     width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.list {
-    display: flex;
-    margin-top: 20vh;
 }
 
 .textbox {
-    margin-top: 25vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .stats-position {
-    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
     width: 30%;
 }
 

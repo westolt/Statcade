@@ -2,7 +2,7 @@ const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave }) => {
 
   return (
     <button
-      className="game-button"
+      className="button reward-button"
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

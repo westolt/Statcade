@@ -1,0 +1,20 @@
+.game-rewards {
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    border: 5px solid #292f3b;
+    background-color: #1e222b;
+    gap: 1em;
+    padding: 5px;
+}
+
+.reward-button {
+    height: 100px;
+    width: 100px;
+    background-color: #181b22;
+    border: 0;
+}
+
+.loading {
+    color: #ddca8d;
+}
