@@ -25,3 +25,21 @@
 .loading {
     color: #ddca8d;
 }
+.selections {
+    width: 100px;
+}
+
+.equip {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.title {
+    width: 80%;
+}
+
+.equip input[type="checkbox"] {
+    width: 20%;
+}
