@@ -1,5 +1,5 @@
 import axios from 'axios'
-import baseUrl from '/api/equipped_rewards'
+const baseUrl = '/api/equipped_rewards'
 
 let token = null
 
@@ -16,7 +16,7 @@ const equip = async reward => {
     return res.data
 }
 
-const unequipt = async ({ slot, gameId }) => {
+const unequip = async ({ slot, gameId }) => {
     const res = await axios.delete(baseUrl, {
         ...config(),
         data: { slot, gameId }
@@ -25,4 +25,4 @@ const unequipt = async ({ slot, gameId }) => {
 }
 
 
-export default { equip, unequipt, setToken }
+export default { equip, unequip, setToken }

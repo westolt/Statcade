@@ -3,11 +3,9 @@ import rewardService from '../services/rewards'
 import RewardButton from './RewardButton'
 import './rewardlist.css'
 
-const RewardList = ({ user, hoverChange }) => {
+const RewardList = ({ user, hoverChange, equip, unequip }) => {
     const [rewards, setRewards] = useState([])
     const [loading, setLoading] = useState(true)
-    const [usernameFont, setUsernameFont] = useState(false)
-    const [gameFont, setGameFont] = useState(false)
 
     useEffect(() => {
         rewardService.getAll().then(data => {
@@ -17,18 +15,6 @@ const RewardList = ({ user, hoverChange }) => {
 
     }, [])
 
-    const getUnlockedRewards = (user, rewards) => {
-        if (!user || !user.unlockedRewards) return []
-        const unlocked = user.unlockedRewards.map(r => r.rewardName)
-        return rewards.filter(reward => unlocked.includes(reward.rewardName))
-    }
-
-    const unlockedRewards = user ? getUnlockedRewards(user, rewards) : null
-
-    const handleClick = () => {
-        return console.log('Unlocked Rewards: ', unlockedRewards)
-    }
-
     if (loading) return <div className='loading'>Loading rewards...</div>
 
     return (
@@ -37,17 +23,12 @@ const RewardList = ({ user, hoverChange }) => {
                 {rewards.map(reward => 
                     <RewardButton
                         key={reward.id}
-                        name={reward.rewardName}
-                        image={reward.thumbnail}
-                        onClick={() => handleClick(reward.id)}
-                        onMouseEnter={()=>hoverChange(reward)}
-                        onMouseLeave={()=>hoverChange(null)}
-                        usernameFont={usernameFont}
-                        setUsernameFont={setUsernameFont}
-                        setGameFont={setGameFont}
-                        gameFont={gameFont}
-                        unlockedRewards={unlockedRewards}
-                            />
+                        reward={reward}
+                        user={user}
+                        equip={equip}
+                        unequip={unequip}
+                        onHover={hoverChange}
+                    />
                 )}
             </div>
         </div>

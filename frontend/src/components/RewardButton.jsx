@@ -1,34 +1,28 @@
-import { useEffect, useState } from "react"
+const RewardButton = ({ reward, user, equip, unequip, onHover }) => {
+  const isUnlocked = user?.unlockedRewards?.some(r => r.rewardName === reward.rewardName)
 
-const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave, usernameFont,  gameFont, unlockedRewards }) => {
-  const [isUnlocked, setIsUnlocked] = useState(false)
+  const isUsernameEquipped = user?.equippedRewards?.some(r => r.rewardId === reward.id && r.slot === 'USERNAME_FONT')
 
-  useEffect(() => {
-    let unlocked = false
-    if (unlockedRewards) {
-      unlocked = unlockedRewards.find(r => r.rewardName === name)
+  const handleUsernameToggle = () => {
+    if (isUsernameEquipped) {
+      unequip({ slot: 'USERNAME_FONT', gameId: null })
+    } else {
+      equip({ rewardId: reward.id, slot: 'USERNAME_FONT', gameId: null })
     }
-    setIsUnlocked(unlocked || false)
-  }, [name, unlockedRewards])
-
-
-  const handleChange = () => {
-    return null
   }
 
   return (
     <div className="selections">
       <button
         className="button reward-button"
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+        onMouseEnter={() => onHover(reward)}
+        onMouseLeave={() => onHover(null)}
       >
       <img 
-        src={image}
-        alt={name}
+        src={reward.image}
+        alt={reward.rewardName}
       />
-      <span>{name}</span>
+      <span>{reward.rewardName}</span>
       </button>
       <div>
         {isUnlocked ? (
@@ -40,19 +34,8 @@ const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave, userna
             id="username"
             name="username"
             value="username"
-            checked={usernameFont.username}
-            onChange={handleChange}
-            />
-          </div>
-          <div className="equip">
-            <div className="title">Game Font</div>
-            <input
-            type="checkbox"
-            id="gamefont"
-            name="gamefont"
-            value="gamefont"
-            checked={gameFont.gamefont}
-            onChange={handleChange}
+            checked={isUsernameEquipped}
+            onChange={handleUsernameToggle}
             />
           </div>
           </>

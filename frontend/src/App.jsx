@@ -4,6 +4,7 @@ import {
   Routes, Route
 } from 'react-router-dom'
 import userService from './services/users'
+import equippedRewardsService from './services/equipped_rewards'
 import gameService from './services/games'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
@@ -22,6 +23,7 @@ const App = () => {
         if (loggedUserJSON) {
             const loggedUser = JSON.parse(loggedUserJSON)
             userService.setToken(loggedUser.token)
+            equippedRewardsService.setToken(loggedUser.token)
 
             const fullUser = await userService.getOne(loggedUser.id)
             setUser({
@@ -32,6 +34,31 @@ const App = () => {
     }
     fetchUser()
   }, [])
+
+  const handleEquip = async ({ rewardId, slot, gameId }) => {
+    const newEquip = await equippedRewardsService.equip({ rewardId, slot, gameId })
+    let updatedEquippedRewards = [...user.equippedRewards]
+
+    updatedEquippedRewards = updatedEquippedRewards.filter(r => !(r.slot === slot && r.gameId === gameId))
+
+    updatedEquippedRewards.push(newEquip)
+
+    setUser({
+      ...user,
+      equippedRewards: updatedEquippedRewards
+    })
+  }
+
+  const handleUnequip = async ({ slot, gameId }) => {
+    await equippedRewardsService.unequip({ slot, gameId })
+
+    const updatedEquippedRewards = updatedEquippedRewards.filter(r => !(r.slot === slot && r.gameId === gameId))
+
+    setUser({
+      ...user,
+      equippedRewards: updatedEquippedRewards
+    })
+  }
 
   useEffect(() => {
     gameService
@@ -46,7 +73,7 @@ const App = () => {
         <Header />
           <NavBar onChange={setHomeMode} />
           <Routes>
-            <Route path='/' element={<Home user={user} setUser={setUser} games={games} mode={homeMode} />} />
+            <Route path='/' element={<Home user={user} setUser={setUser} equip={handleEquip} unequip={handleUnequip} games={games} mode={homeMode} />} />
             <Route path='/games/:id' element={<Play games={games} />} />
           </Routes>
       </Router>
