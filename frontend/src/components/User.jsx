@@ -9,8 +9,7 @@ import guest from '../assets/guest.png'
 import ImageButton from './ImageButton'
 import './user.css'
 
-const User = () => {
-    const [user, setUser] = useState(null)
+const User = ({ user, setUser}) => {
     const [scores, setScores] = useState([])
     const [userScores, setUserScores] = useState([])
     const [profilePictureFile, setProfilePictureFile] = useState(null)
@@ -21,24 +20,6 @@ const User = () => {
         return user.equippedRewards.find(r => r.slot === slot) || null
     }
     const usernameFont = user ? getEquippedReward(user, 'USERNAME_FONT') : null
-
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const loggedUserJSON = window.localStorage.getItem('loggedUser')
-            if (loggedUserJSON) {
-                const loggedUser = JSON.parse(loggedUserJSON)
-                userService.setToken(loggedUser.token)
-
-                const fullUser = await userService.getOne(loggedUser.id)
-                setUser({
-                    ...fullUser,
-                    token: loggedUser.token
-                })
-            }
-        }
-        fetchUser()
-    }, [])
 
     useEffect(() => {
         if (user) {

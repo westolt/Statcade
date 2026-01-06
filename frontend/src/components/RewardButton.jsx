@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave, usernameFont, setUsernameFont, gameFont, setGameFont, unlockedRewards }) => {
+const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave, usernameFont,  gameFont, unlockedRewards }) => {
   const [isUnlocked, setIsUnlocked] = useState(false)
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const RewardButton = ({ name, image, onClick, onMouseEnter, onMouseLeave, userna
             />
           </div>
           <div className="equip">
-            <div className="title">Game</div>
+            <div className="title">Game Font</div>
             <input
             type="checkbox"
             id="gamefont"

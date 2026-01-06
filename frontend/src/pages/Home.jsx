@@ -6,13 +6,13 @@ import TextBox from '../components/TextBox'
 import Statistics from '../components/Statistics'
 import './home.css'
 
-const Home = ({ games, mode }) => {
+const Home = ({ user, setUser, games, mode }) => {
     const [ hoverInfo, setHoverId] = useState(null)
 
     return (
     <div className='container'>
         <div className='middle-area'>
-            <div className='userbox'><User /></div>
+            <div className='userbox'><User user={user} setUser={setUser}/></div>
             <div className='lists'>
                 <div>
                     {mode === 'GAMES' && (
@@ -21,7 +21,7 @@ const Home = ({ games, mode }) => {
                 </div>
                 <div>
                     {mode === 'REWARDS' && (
-                        <RewardList hoverChange={setHoverId} />
+                        <RewardList user={user} hoverChange={setHoverId} />
                     )}
                 </div>
             </div>

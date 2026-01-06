@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import rewardService from '../services/rewards'
-import userService from '../services/users'
 import RewardButton from './RewardButton'
 import './rewardlist.css'
 
-const RewardList = ({ hoverChange }) => {
+const RewardList = ({ user, hoverChange }) => {
     const [rewards, setRewards] = useState([])
-    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [usernameFont, setUsernameFont] = useState(false)
     const [gameFont, setGameFont] = useState(false)
@@ -16,20 +14,7 @@ const RewardList = ({ hoverChange }) => {
             setRewards(data)
             setLoading(false)
         })
-        const fetchUser = async () => {
-            const loggedUserJSON = window.localStorage.getItem('loggedUser')
-            if (loggedUserJSON) {
-                const loggedUser = JSON.parse(loggedUserJSON)
-                userService.setToken(loggedUser.token)
 
-                const fullUser = await userService.getOne(loggedUser.id)
-                setUser({
-                    ...fullUser,
-                    token: loggedUser.token
-                })
-            }
-        }
-        fetchUser()
     }, [])
 
     const getUnlockedRewards = (user, rewards) => {

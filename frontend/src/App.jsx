@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Routes, Route
 } from 'react-router-dom'
+import userService from './services/users'
 import gameService from './services/games'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
@@ -11,8 +12,26 @@ import Play from './pages/Play'
 import './app.css'
 
 const App = () => {
+  const [user, setUser] = useState(null)
   const [games, setGames] = useState([])
   const [homeMode, setHomeMode] = useState('GAMES')
+
+  useEffect(() => {
+    const fetchUser = async () => {
+        const loggedUserJSON = window.localStorage.getItem('loggedUser')
+        if (loggedUserJSON) {
+            const loggedUser = JSON.parse(loggedUserJSON)
+            userService.setToken(loggedUser.token)
+
+            const fullUser = await userService.getOne(loggedUser.id)
+            setUser({
+                ...fullUser,
+                token: loggedUser.token
+            })
+        }
+    }
+    fetchUser()
+  }, [])
 
   useEffect(() => {
     gameService
@@ -27,7 +46,7 @@ const App = () => {
         <Header />
           <NavBar onChange={setHomeMode} />
           <Routes>
-            <Route path='/' element={<Home games={games} mode={homeMode} />} />
+            <Route path='/' element={<Home user={user} setUser={setUser} games={games} mode={homeMode} />} />
             <Route path='/games/:id' element={<Play games={games} />} />
           </Routes>
       </Router>
