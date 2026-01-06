@@ -8,6 +8,7 @@ const loginRouter = require('./controllers/login')
 const scoreRouter = require('./controllers/scores')
 const rewardRouter = require('./controllers/rewards')
 const equippedRewardRouter = require('./controllers/equipped_rewards')
+const userRewardRouter = require('./controllers/user_rewards')
 
 const app = express()
 
@@ -19,6 +20,7 @@ app.use('/api/games', gamesRouter)
 app.use('/api/scores', scoreRouter)
 app.use('/api/rewards', rewardRouter)
 app.use('/api/equipped_rewards', equippedRewardRouter)
+app.use('/api/user_rewards', userRewardRouter)
 
 app.use('/static-games', express.static('games'))
 app.use(express.static('dist'))

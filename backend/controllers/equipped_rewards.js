@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     res.json(equipped_rewards)
 })
 
-router.delete('/', tokenExtractor,async (req, res) => {
+router.delete('/', tokenExtractor, async (req, res) => {
     const userId = req.decodedToken.id
     const {slot, gameId} = req.body
     const deleted = await EquippedReward.destroy({
