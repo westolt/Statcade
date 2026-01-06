@@ -65,4 +65,8 @@
 |  4.1  | 2        | Design equipped rewards system with focus on scalability. Discuss implementation ideas with ChatGPT. Decide to use unique constraints in equipped reward migration and slot ENUM in the model |
 |       | 3        | Add equipped rewards migration, model, and controller. Add POST route to equip rewards (replacing previous equipment) and DELETE route to unequip rewards |
 |       | 2        | Refactoring |
-| total | 153      |                                                                                                                               |
+|  5.1  | 2        | Add more user data after login and registration using user id. Add getOne method to users service and fix failing user tests |
+|       | 2        | Implement navigation bar and add logic to change username font when user has equipped USERNAME_FONT reward |
+|       | 3        | Add RewardList and RewardButton components, add images and instructions to rewards, and refactor Home page component structure |
+|       | 1        | Improve rewards UX by fixing reward order and adding hover effects to reward buttons |
+| total | 161      |                                                                                                                               |

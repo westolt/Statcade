@@ -8,18 +8,17 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 2rem;
     width: 100%;
 }
 
 .scoreboard-position {
-  width: 30%;
+  width: 29%;
 }
 
 .gamescreen-position {
   display: flex;
   justify-content: end;
-  width: 70%;
+  width: 71%;
 }
 
 .scoreboard {
