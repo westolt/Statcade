@@ -51,8 +51,9 @@ const App = () => {
 
   const handleUnequip = async ({ slot, gameId }) => {
     await equippedRewardsService.unequip({ slot, gameId })
+    let updatedEquippedRewards = [...user.equippedRewards]
 
-    const updatedEquippedRewards = updatedEquippedRewards.filter(r => !(r.slot === slot && r.gameId === gameId))
+    updatedEquippedRewards = updatedEquippedRewards.filter(r => !(r.slot === slot && r.gameId === gameId))
 
     setUser({
       ...user,
