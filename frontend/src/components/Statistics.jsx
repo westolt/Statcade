@@ -5,7 +5,7 @@ import NameFilter from './NameFilter'
 import ScoreList from './ScoreList'
 import './stats.css'
 
-const Stats = () => {
+const Stats = ({ user }) => {
     const [highscores, setHighScores] = useState([])
     const [sortBy, setSortBy] = useState('latest')
     const [filteredName, setFilteredName] = useState('')
@@ -44,7 +44,7 @@ const Stats = () => {
                 <ShowFilter sortBy={sortBy} setSortBy={setSortBy}/>
                 <NameFilter filteredName={filteredName} setFilteredName={setFilteredName}/>
             </div>
-            <ScoreList scores={filteredScores}/>
+            <ScoreList scores={filteredScores} user={user} />
         </div>
     )
 }

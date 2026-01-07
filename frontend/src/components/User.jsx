@@ -8,7 +8,6 @@ import Message from './Message'
 import guest from '../assets/guest.png'
 import ImageButton from './ImageButton'
 import './user.css'
-import './fonts.css'
 import equippedRewardsService from '../services/equipped_rewards'
 
 const User = ({ user, setUser}) => {
