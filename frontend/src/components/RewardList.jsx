@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import rewardService from '../services/rewards'
+import userService from '../services/users'
 import RewardButton from './RewardButton'
 import './rewardlist.css'
 
-const RewardList = ({ user, hoverChange, equip, unequip }) => {
+const RewardList = ({ user, setUser, hoverChange, equip, unequip }) => {
     const [rewards, setRewards] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -13,6 +14,22 @@ const RewardList = ({ user, hoverChange, equip, unequip }) => {
             setLoading(false)
         })
 
+    }, [])
+
+    useEffect(() => {
+        const updateRewards = async () => {
+            try {
+                const fullUser = await userService.getOne(user.id)
+                setUser({
+                    ...fullUser,
+                    unlockedRewards: fullUser.unlockedRewards
+                })
+            } catch (err) {
+                console.error('Error fetching rewards:', err)
+            } 
+        }
+
+        updateRewards()
     }, [])
 
     if (loading) return <div className='loading'>Loading rewards...</div>

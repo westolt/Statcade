@@ -4,7 +4,6 @@ import {
   Routes, Route
 } from 'react-router-dom'
 import userService from './services/users'
-import userRewardsService from './services/user_rewards'
 import equippedRewardsService from './services/equipped_rewards'
 import gameService from './services/games'
 import Header from './components/Header'
@@ -35,20 +34,6 @@ const App = () => {
     }
     fetchUser()
   }, [])
-
-  const handleUnlock = async (rewardId) => {
-    const newReward = await userRewardsService.unlock(rewardId)
-
-    const updatedUnlockedRewards = [
-      ...user.unlockedRewards,
-      newReward
-    ]
-
-    setUser({
-      ...user,
-      unlockedRewards: updatedUnlockedRewards
-    })
-  }
 
   const handleEquip = async ({ rewardId, slot, gameId }) => {
     const newEquip = await equippedRewardsService.equip({ rewardId, slot, gameId })
@@ -90,7 +75,7 @@ const App = () => {
           <NavBar onChange={setHomeMode} />
           <Routes>
             <Route path='/' element={<Home user={user} setUser={setUser} equip={handleEquip} unequip={handleUnequip} games={games} mode={homeMode} />} />
-            <Route path='/games/:id' element={<Play games={games} unlock={handleUnlock} />} />
+            <Route path='/games/:id' element={<Play games={games} />} />
           </Routes>
       </Router>
   )

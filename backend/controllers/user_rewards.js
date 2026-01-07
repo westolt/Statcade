@@ -3,7 +3,7 @@ const { tokenExtractor } = require('../util/middleware')
 const {  UserReward } = require('../models/index')
 
 router.post(('/'), tokenExtractor, async (req, res) => {
-    const userId = req.decodeToken.id
+    const userId = req.decodedToken.id
     const {rewardId} = req.body
 
     const checkUserRewards = await UserReward.findOne({

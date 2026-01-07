@@ -230,9 +230,9 @@ test('posting a new score works', async () => {
     .send(newScore)
     .expect(200)
 
-  assert.strictEqual(res.body.score, newScore.score)
-  assert.strictEqual(res.body.userId, user.id)
-  assert.strictEqual(res.body.gameId, game.id)
+  assert.strictEqual(res.body.score.score, newScore.score)
+  assert.strictEqual(res.body.score.userId, user.id)
+  assert.strictEqual(res.body.score.gameId, game.id)
 })
 
 test('score is updated only if new score is higher', async () => {
@@ -248,7 +248,7 @@ test('score is updated only if new score is higher', async () => {
     .send({ score: 30, gameId: game.id })
     .expect(200)
 
-  assert.strictEqual(res.body.score, 50)
+  assert.strictEqual(res.body.score.score, 50)
 
   const resNew = await api
     .post('/api/scores')
@@ -256,7 +256,7 @@ test('score is updated only if new score is higher', async () => {
     .send({ score: 100, gameId: game.id })
     .expect(200)
 
-  assert.strictEqual(resNew.body.score, 100)
+  assert.strictEqual(resNew.body.score.score, 100)
 })
 
 test('score is not saved if token is invalid', async () => {

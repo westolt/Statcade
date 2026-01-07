@@ -1,7 +1,8 @@
 
 const router = require('express').Router()
 const { tokenExtractor } = require('../util/middleware')
-const { Score, User, Game } = require('../models/index')
+const { Score, User, Game, Reward, UserReward } = require('../models/index')
+const { Op } = require('sequelize')
 
 router.get('/', async (req, res) => {
     const scores = await Score.findAll({
@@ -54,21 +55,40 @@ router.post('/', tokenExtractor, async (req, res) => {
         where: { userId, gameId }
     })
 
+    const rewards = await Reward.findAll({
+        where: {
+            gameId,
+            required_score: { [Op.lte]: score }
+        }
+    })
+
+    const unlocked = await UserReward.findAll({
+        where: { userId }
+    })
+    const unlockedIds = unlocked.map(r => r.rewardId)
+
+    const newRewards = rewards.filter(
+        r => !unlockedIds.includes(r.id)
+    )
+    console.log('NEW REWARDS: ', newRewards)
+    const created = await Promise.all(
+        newRewards.map(r =>
+            UserReward.create({ userId, rewardId: r.id })
+        )
+    )
+
     if (currentScore) {
-        if (currentScore.score >= score) {
-            res.json(currentScore)
-        } else {
+        if (currentScore.score < score) {
             currentScore.score = score
             await currentScore.save()
-            res.json(currentScore)
         }
-    } else {
-        const newScore = await Score.create({
-            score,
-            userId,
-            gameId
+        res.json({
+            score: currentScore,
+            unlockedRewards: created
         })
-        res.json(newScore)
+    } else {
+        const newScore = await Score.create({ score, userId, gameId })
+        res.json({ score: newScore, unlockedRewards: created })
     }
 })
 
