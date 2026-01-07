@@ -1,4 +1,4 @@
-const RewardButton = ({ reward, user, equip, unequip, onHover }) => {
+const RewardButton = ({ reward, user, equip, unequip, onHover, onClick, isVisible }) => {
   const isUnlocked = user?.unlockedRewards?.some(r => r.rewardName === reward.rewardName)
 
   const isUsernameEquipped = user?.equippedRewards?.some(r => r.rewardId === reward.id && r.slot === 'USERNAME_FONT')
@@ -14,7 +14,8 @@ const RewardButton = ({ reward, user, equip, unequip, onHover }) => {
   return (
     <div className="selections">
       <button
-        className="button reward-button"
+        className={`reward-button ${isUsernameEquipped ? 'equipped' : ''}`}
+        onClick={onClick}
         onMouseEnter={() => onHover(reward)}
         onMouseLeave={() => onHover(null)}
       >
@@ -24,23 +25,18 @@ const RewardButton = ({ reward, user, equip, unequip, onHover }) => {
       />
       <span>{reward.rewardName}</span>
       </button>
-      <div>
-        {isUnlocked ? (
+      <div className={isVisible ? "drop-down" : "hidden"}>
+        {isUnlocked && isVisible && (
           <>
           <div className="equip">
             <div className="title">Username</div>
             <input
-            type="checkbox"
-            id="username"
-            name="username"
-            value="username"
-            checked={isUsernameEquipped}
-            onChange={handleUsernameToggle}
+              type="checkbox"
+              checked={isUsernameEquipped}
+              onChange={handleUsernameToggle}
             />
           </div>
-          </>
-        ) : (
-          <>Locked</>
+        </>
         )}
       </div>
   </div>

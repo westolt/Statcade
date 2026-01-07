@@ -6,6 +6,7 @@ import './rewardlist.css'
 const RewardList = ({ user, hoverChange, equip, unequip }) => {
     const [rewards, setRewards] = useState([])
     const [loading, setLoading] = useState(true)
+    const [isVisible, setIsVisible] = useState(null)
 
     useEffect(() => {
         rewardService.getAll().then(data => {
@@ -16,6 +17,12 @@ const RewardList = ({ user, hoverChange, equip, unequip }) => {
     }, [])
 
     if (loading) return <div className='loading'>Loading rewards...</div>
+
+    const handleClick = (id) => {
+        setIsVisible(prev =>
+            prev === id ? null : id
+        )
+    }
 
     return (
         <div>
@@ -28,6 +35,8 @@ const RewardList = ({ user, hoverChange, equip, unequip }) => {
                         equip={equip}
                         unequip={unequip}
                         onHover={hoverChange}
+                        onClick={() => handleClick(reward.id)}
+                        isVisible={isVisible === reward.id}
                     />
                 )}
             </div>

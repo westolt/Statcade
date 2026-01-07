@@ -14,12 +14,24 @@
     background-color: #181b22;
     border: 0;
 
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.30s ease, box-shadow 0.30s ease;
 }
 
 .reward-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.reward-button.equipped {
+    border-color: #ddca8d;
+    box-shadow:
+        0 0 8px rgba(221, 202, 141, 0.6);
+}
+
+.reward-button.equipped:hover {
+    transform: scale(1);
+    box-shadow:
+        0 0 8px rgba(141, 129, 89, 0.6);
 }
 
 .loading {
@@ -27,6 +39,27 @@
 }
 .selections {
     width: 100px;
+    position: relative;
+}
+
+.drop-down {
+    display: flex;
+    flex-direction: column;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    border: 5px solid #292f3b;
+    background-color: #1e222b;
+    border-top: none;
+    margin-top: 8px;
+    color: #ddca8d;
+    left: -12px;
+    width: 115px;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .equip {
@@ -38,6 +71,8 @@
 
 .title {
     width: 80%;
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
 
 .equip input[type="checkbox"] {
