@@ -35,6 +35,29 @@ const App = () => {
     fetchUser()
   }, [])
 
+  useEffect(() => {
+    const handleMessage = async (event) => {
+      if (event.data.type === 'SCORE_UPDATE') {
+        const { userId, token } = event.data
+
+        try {
+          const fullUser = await userService.getOne(userId)
+          equippedRewardsService.setToken(token)
+
+          setUser({
+            ...fullUser,
+            token
+          })
+        } catch (err) {
+          console.error('Error fetching user after score update:', err)
+        }
+      }
+    }
+
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
+
   const handleEquip = async ({ rewardId, slot, gameId }) => {
     const newEquip = await equippedRewardsService.equip({ rewardId, slot, gameId })
     let updatedEquippedRewards = [...user.equippedRewards]

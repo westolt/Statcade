@@ -8,6 +8,8 @@ import Message from './Message'
 import guest from '../assets/guest.png'
 import ImageButton from './ImageButton'
 import './user.css'
+import './fonts.css'
+import equippedRewardsService from '../services/equipped_rewards'
 
 const User = ({ user, setUser}) => {
     const [scores, setScores] = useState([])
@@ -40,6 +42,8 @@ const User = ({ user, setUser}) => {
         setScores([])
         setUserScores([])
         setProfilePictureFile(null)
+        userService.setToken(null)
+        equippedRewardsService.setToken(null)
         window.localStorage.removeItem('loggedUser')
     }
 

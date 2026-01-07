@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import loginService from '../services/login'
 import userService from '../services/users'
+import equippedRewardsService from '../services/equipped_rewards'
 
 const LoginFrom = ({ setUser, showMessage }) => {
     const [username, setUsername] = useState('') 
@@ -17,6 +18,7 @@ const LoginFrom = ({ setUser, showMessage }) => {
                 )
 
                 userService.setToken(user.token)
+                equippedRewardsService.setToken(user.token)
 
                 const fullUser = await userService.getOne(user.id)
 
