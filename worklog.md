@@ -69,4 +69,8 @@
 |       | 2        | Implement navigation bar and add logic to change username font when user has equipped USERNAME_FONT reward |
 |       | 3        | Add RewardList and RewardButton components, add images and instructions to rewards, and refactor Home page component structure |
 |       | 1        | Improve rewards UX by fixing reward order and adding hover effects to reward buttons |
-| total | 161      |                                                                                                                               |
+|  6.1  | 2        | Handle unlocked rewards in RewardList and RewardButton components |
+|       | 2        | Move user fetch logic to App.jsx and add equipped_rewards service |
+|       | 3        | Add functionality to equip and unequip username font rewards. Refactor RewardList and RewardButton components and fix failing frontend tests |
+|       | 2        | Implement reward unlock mechanism by adding user_rewards controller and service and frontend handleUnlock function |
+| total | 170      |                                                                                                                               |
