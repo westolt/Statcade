@@ -70,7 +70,7 @@ router.post('/', tokenExtractor, async (req, res) => {
     const newRewards = rewards.filter(
         r => !unlockedIds.includes(r.id)
     )
-    console.log('NEW REWARDS: ', newRewards)
+
     const created = await Promise.all(
         newRewards.map(r =>
             UserReward.create({ userId, rewardId: r.id })
