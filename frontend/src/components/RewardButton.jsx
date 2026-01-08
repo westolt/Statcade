@@ -33,9 +33,8 @@ const RewardButton = ({ reward, user, equip, unequip, onHover, onClick, isVisibl
         </>
       )}
       </button>
-      <div className={isVisible ? "drop-down" : "hidden"}>
-        {isUnlocked && isVisible && (
-          <>
+      <div className={`drop-down ${isVisible ? 'show' : ''}`}>
+        {isUnlocked ? (
           <div className="equip">
             <div className="title">Username</div>
             <input
@@ -44,7 +43,8 @@ const RewardButton = ({ reward, user, equip, unequip, onHover, onClick, isVisibl
               onChange={handleUsernameToggle}
             />
           </div>
-        </>
+        ) : (
+            <></>
         )}
       </div>
   </div>

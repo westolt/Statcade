@@ -77,10 +77,16 @@
     color: #ddca8d;
     left: -12px;
     width: 115px;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.hidden {
-    visibility: hidden;
+.drop-down.show {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .equip {
