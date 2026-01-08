@@ -13,7 +13,7 @@
 |       | 1        | Add `app.use('/static-games', express.static('games'))` to serve game files. Using the same technique as serving frontend static files, but with a different path |
 |       | 1        | Edit Play page on frontend to display the game                                                                                |
 | 13.11 | 1        | Improve frontend development environment (add proxy rule). Investigate issue with games not loading after refresh             |
-|       | 3        | Study css (Flexbox) from youtube. Refactor css files. Fix layout when using application on mobile                             |
+|       | 3        | Study css (Flexbox) from YouTube. Refactor css files. Fix layout when using application on mobile                             |
 | 17.11 | 3        | Study how to change text when hovering over a button. Credit to Bitfumes for the tutorial: [link](https://www.youtube.com/watch?v=GSHBhIqylxM). Implement hover-based game description in TextBox |
 | 19.11 | 1        | Make header a link to Home page, add how_to_play column to games table and TextBox to Play page                               |
 |       | 4        | Fix the issue where play page does not find the game after refreshing                                                         |
@@ -41,7 +41,7 @@
 | 21.12 | 4        | Learn more how to use Cloudinary. Followed this [tutorial](https://cloudinary.com/blog/guest_post/upload-images-to-cloudinary-with-node-js-and-react) from Cloudinary's website on how to upload images to Cloudinary using multer memoryStorage. Refactor image deletion. Remove static profile_pictures folder from backend and create profile_pictures and test folders in Cloudinary |
 | 22.12 | 9        | Add unit tests to frontend and backend   |
 | 23.12 | 2        | Separate prod, dev and test environments  |
-|       | 2        | Add Stats.jsx that shows statistics. Used this [answer](https://stackoverflow.com/questions/77901322/javascript-current-time-not-getting-updated-in-react-js) from Stack overflow to set properly time for high scores |
+|       | 2        | Add Stats.jsx that shows statistics. Got help from this [answer](https://stackoverflow.com/questions/77901322/javascript-current-time-not-getting-updated-in-react-js) from Stack overflow to set properly time for high scores |
 |       | 3        | Refactor Stats.jsx and design how to display statistics  |
 |       | 2        | Work with css  |
 | 24.12 | 4        | Refactor and redesign User.jsx, improve top 10 scoreboard appearance, update font-family globally except in TextBox. |
@@ -58,7 +58,7 @@
 |       | 2        | Display current WPM in real time while typing. Fix calculation formula and ensure WPM resets correctly when starting a new game |
 |       | 2        | Add ability to save user score to backend via scoreService. Fix handleTyping logic to be compatible with async score submission. |
 | 28.12 | 4        | Refactor message display, update registration view, redesign Top 10 scoreboard, and update Home page layout. Improve User.jsx, Login.jsx and Message.jsx styling and replace guest image |
-| 2.1   | 2        | Learn how to create blinking cursor effect with CSS for [TypingGame](https://github.com/westolt/TypingGame.git). A [youtube tutorial](https://www.youtube.com/watch?v=vsKYZj-XskI&t=1s) was helpful for understanding animations, but using border-left caused the cursor to collide with letters and shift them slightly. Solved this by switching to a ::after pseudo-element, which fixes the issue. Got help from this [video](https://www.youtube.com/watch?v=dIUOWdwwZBw) |
+| 2.1   | 2        | Learn how to create blinking cursor effect with CSS for [TypingGame](https://github.com/westolt/TypingGame.git). A [YouTube tutorial](https://www.youtube.com/watch?v=vsKYZj-XskI&t=1s) was helpful for understanding animations, but using border-left caused the cursor to collide with letters and shift them slightly. Solved this by switching to a ::after pseudo-element, which fixes the issue. Got help from this [video](https://www.youtube.com/watch?v=dIUOWdwwZBw) |
 |       | 6        | Update Typing Game UI and improve typing flow by adding cursor. Add a thumbnail to TypingGame and adjust the homepage layout of UserBox, GameList, TextBox, and Statistics |
 |  3.1  | 3        | Design how to implement award system to Statcade. Evaluate different data models and decide on many-to-many structure between users and rewards  |
 |       | 2        | Add Reward model, migration, and controller, add many-to-many connection between User and Reward through UserReward  |
@@ -73,4 +73,7 @@
 |       | 2        | Move user fetch logic to App.jsx and add equipped_rewards service |
 |       | 3        | Add functionality to equip and unequip username font rewards. Refactor RewardList and RewardButton components and fix failing frontend tests |
 |       | 2        | Implement reward unlock mechanism by adding user_rewards controller and service and frontend handleUnlock function |
-| total | 170      |                                                                                                                               |
+|  7.1  | 3        | Re-evaluate reward unlock design. Initially planned to handle unlock checks in the frontend (App.jsx), which led to adding a user_rewards service on the previous day. After refactoring, move unlock logic to the backend score controller where score submission occurs. Implement reward unlock checks in score.js, remove unused user_rewards service and controller |
+|       | 2        | Fix reward refresh issues after unlocking rewards. Got help from this [YouTube video](https://www.youtube.com/watch?v=r2_A3bh94fY). Add token handling to equipped rewards |
+|       | 2        | Improve RewardButton UI and UX. Show reward checkbox only when the reward button is clicked. Add styling and glow effects to equipped reward buttons |
+| total | 177      |                                                                                                                               |
