@@ -1,8 +1,16 @@
 import './textbox.css'
 
-const TextBox = ({ hoverInfo, user }) => {
+const TextBox = ({ hoverInfo, user, message }) => {
     const rewardInstructions = hoverInfo?.instructions
     const gameDescription = hoverInfo?.description
+
+    if(message) {
+        return(
+            <div className='box'>
+                <div className='text'>{ message }</div>
+            </div>
+        )
+    }
 
     if(rewardInstructions) {
         const rewardInfo = hoverInfo.instructions.split(/\r?\n/)
