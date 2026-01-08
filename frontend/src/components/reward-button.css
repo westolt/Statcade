@@ -1,0 +1,53 @@
+.reward-button.background-1 {
+  background-color: #ff96a7;
+  color: #ff96a7;
+}
+
+.reward-button.background-3 {
+  background-color: #41d4d4;
+  color: #41d4d4;
+}
+
+.reward-button.background-2 {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: linear-gradient(90deg, #ff6ec4, #7873f5);
+}
+
+.reward-button.background-4 {
+  background: #00fff7;
+  color: black;
+  box-shadow:
+  0 0 1px #00fff7,
+  0 0 5px #00fff7,
+  0 0 5px #00fff7,
+  0 0 5px #7873f5;
+}
+
+.reward-button.background-5 {
+  background: linear-gradient(
+    120deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+    );
+  color: white;
+
+  background-size: 600% 600%;
+  animation: buttonrainbowMove 15s ease infinite;
+}
+
+@keyframes buttonrainbowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

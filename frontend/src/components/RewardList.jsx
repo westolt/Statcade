@@ -27,7 +27,7 @@ const RewardList = ({ user, hoverChange, equip, unequip }) => {
     return (
         <div>
             <div className='game-rewards'>
-                {rewards.map(reward => 
+                {rewards.map(reward =>
                     <RewardButton
                         key={reward.id}
                         reward={reward}

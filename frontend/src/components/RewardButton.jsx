@@ -1,3 +1,5 @@
+import './reward-button.css'
+
 const RewardButton = ({ reward, user, equip, unequip, onHover, onClick, isVisible }) => {
   const isUnlocked = user?.unlockedRewards?.some(r => r.rewardName === reward.rewardName)
 
@@ -14,16 +16,22 @@ const RewardButton = ({ reward, user, equip, unequip, onHover, onClick, isVisibl
   return (
     <div className="selections">
       <button
-        className={`reward-button ${isUsernameEquipped ? 'equipped' : ''}`}
+        className={`reward-button
+          ${isUnlocked ? '' : 'locked'}
+          ${isUsernameEquipped ? 'equipped' : ''}
+          ${reward.gameId === 1 ? `background-${reward.id}` : ''}
+        `}
         onClick={onClick}
         onMouseEnter={() => onHover(reward)}
         onMouseLeave={() => onHover(null)}
       >
-      <img 
-        src={reward.image}
-        alt={reward.rewardName}
-      />
-      <span>{reward.rewardName}</span>
+      {!isUnlocked && <div className='locked-text'>LOCKED</div>}
+      {reward.gameId !== 1 && (
+        <>
+          <img src={reward.image} alt={reward.rewardName} />
+          <span>{reward.rewardName}</span>
+        </>
+      )}
       </button>
       <div className={isVisible ? "drop-down" : "hidden"}>
         {isUnlocked && isVisible && (

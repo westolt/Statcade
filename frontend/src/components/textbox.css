@@ -1,6 +1,6 @@
 .box {
-    width: 500px;
-    height: 80px;
+    width: 600px;
+    height: 100px;
     background-color: #1e222b;
     border-radius: 5px;
     border: 5px solid #292f3b;
@@ -14,4 +14,13 @@
     font-size: large;
     color: #ddca8d;
     margin: 0;
+    padding-bottom: 5px;
+}
+
+strong {
+    padding-right: 10px;
+}
+
+.gap {
+    margin-top: -10px;
 }

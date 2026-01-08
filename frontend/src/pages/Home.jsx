@@ -27,7 +27,7 @@ const Home = ({ user, setUser, equip, unequip, games, mode }) => {
             </div>
             <div className='stats-position'><Statistics /></div>
         </div>
-        <div className='textbox'><TextBox message={hoverInfo ? hoverInfo.description || hoverInfo.instructions : 'Welcome to Statcade!'}/></div>
+        <div className='textbox'><TextBox hoverInfo={hoverInfo} user={user} /></div>
     </div>
     )
 }
