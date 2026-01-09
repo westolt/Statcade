@@ -5,16 +5,18 @@ import NameFilter from './NameFilter'
 import ScoreList from './ScoreList'
 import './stats.css'
 
-const Stats = ({ user }) => {
+const Statistics = ({ user }) => {
     const [highscores, setHighScores] = useState([])
     const [sortBy, setSortBy] = useState('latest')
     const [filteredName, setFilteredName] = useState('')
+    const equippedFont = user?.equippedRewards?.find(r => r.slot === 'USERNAME_FONT')
 
     useEffect(() => {
         scoreService.getAll().then(data => {
             setHighScores(data)
+            console.log('font: ', equippedFont)
         })
-    }, [])
+    }, [equippedFont])
 
     const sortedScores = [...highscores].sort((a, b) => {
         if (sortBy === 'latest') {
@@ -44,9 +46,9 @@ const Stats = ({ user }) => {
                 <ShowFilter sortBy={sortBy} setSortBy={setSortBy}/>
                 <NameFilter filteredName={filteredName} setFilteredName={setFilteredName}/>
             </div>
-            <ScoreList scores={filteredScores} user={user} />
+            <ScoreList scores={filteredScores} />
         </div>
     )
 }
 
-export default Stats
+export default Statistics

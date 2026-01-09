@@ -25,7 +25,7 @@ const Home = ({ user, setUser, equip, unequip, games, mode }) => {
                     )}
                 </div>
             </div>
-            <div className='stats-position'><Statistics /></div>
+            <div className='stats-position'><Statistics user={user} /></div>
         </div>
         <div className='textbox'><TextBox hoverInfo={hoverInfo} user={user} /></div>
     </div>

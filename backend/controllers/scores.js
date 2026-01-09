@@ -1,7 +1,7 @@
 
 const router = require('express').Router()
 const { tokenExtractor } = require('../util/middleware')
-const { Score, User, Game, Reward, UserReward } = require('../models/index')
+const { Score, User, Game, Reward, UserReward, EquippedReward } = require('../models/index')
 const { Op } = require('sequelize')
 
 router.get('/', async (req, res) => {
@@ -10,6 +10,13 @@ router.get('/', async (req, res) => {
         { 
             model: User,
             attributes: ['username'],
+            include: [
+                {
+                    model: EquippedReward,
+                    as: 'equippedRewards',
+                    attributes: ['rewardId', 'slot', 'gameId']
+                }
+            ]
         },
         {
             model: Game,
@@ -31,6 +38,13 @@ router.get('/game/:id', async (req, res) => {
         { 
             model: User,
             attributes: ['username'],
+            include: [
+                {
+                    model: EquippedReward,
+                    as: 'equippedRewards',
+                    attributes: ['rewardId', 'slot', 'gameId']
+                }
+            ]
         }
         ]
     })

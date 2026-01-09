@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './fonts.css'
 
 const ScoreList = ({ scores }) => {
     const [currentTime, setCurrentTime] =  useState(new Date())
@@ -42,12 +43,17 @@ const ScoreList = ({ scores }) => {
             <div className='scores'>
                 {scores.map(highscore => {
                 const updatedAt = new Date(highscore.updatedAt)
+                const usernameFont = highscore.user.equippedRewards?.find(r => r.slot === 'USERNAME_FONT')
                 return (
                     <div className='score_row' key={highscore.id}>
-                    <div className='score_cell'>{highscore.user.username}</div>
-                    <div className='score_cell'>{highscore.game.name}</div>
-                    <div className='score_cell'>{highscore.score}</div>
-                    <div className='score_cell'>{handleTime(updatedAt, currentTime)}</div>
+                        <div className='score_cell'>
+                            <div className={`${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>
+                                {highscore.user.username}
+                            </div>
+                        </div>
+                        <div className='score_cell'>{highscore.game.name}</div>
+                        <div className='score_cell'>{highscore.score}</div>
+                        <div className='score_cell'>{handleTime(updatedAt, currentTime)}</div>
                     </div>
                 )
                 })}
