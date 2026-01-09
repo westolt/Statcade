@@ -1,7 +1,7 @@
 import './fonts.css'
 import guest from '../assets/guest.png'
 
-const Scoreboard = ({ scoreboard }) => {
+const Scoreboard = ({ scoreboard}) => {
     return(
         <div>
             <div className='scoreboard'>

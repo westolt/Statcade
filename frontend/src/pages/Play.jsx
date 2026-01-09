@@ -27,11 +27,12 @@ const Play = ({ games }) => {
         <div>
             <div className='playbox'>
                 <div className='game-layout'>
+                    <div className='emptyspace-position'></div>
                     <div className='gamescreen-position'>
                         <GameScreen game={game}/>
                     </div>
                     <div className='scoreboard-position'>
-                        <Scoreboard scoreboard={scoreboard}/>
+                        <Scoreboard scoreboard={scoreboard} />
                     </div>
                 </div>
                 <Textbox message={game.howToPlay}/>

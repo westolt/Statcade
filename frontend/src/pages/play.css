@@ -9,16 +9,23 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    height: 600px;
 }
 
-.scoreboard-position {
-  width: 29%;
+.emptyspace-position {
+  width: 30%;
 }
 
 .gamescreen-position {
   display: flex;
-  justify-content: end;
-  width: 71%;
+  justify-content: center;
+  width: 40%;
+}
+
+.scoreboard-position {
+  width: 30%;
+  display: flex;
+  justify-content: center;
 }
 
 .scoreboard {
