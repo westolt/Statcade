@@ -76,4 +76,7 @@
 |  7.1  | 3        | Re-evaluate reward unlock design. Initially planned to handle unlock checks in the frontend (App.jsx), which led to adding a user_rewards service on the previous day. After refactoring, move unlock logic to the backend score controller where score submission occurs. Implement reward unlock checks in score.js, remove unused user_rewards service and controller |
 |       | 2        | Fix reward refresh issues after unlocking rewards. Got help from this [YouTube video](https://www.youtube.com/watch?v=r2_A3bh94fY). Add token handling to equipped rewards |
 |       | 2        | Improve RewardButton UI and UX. Show reward checkbox only when the reward button is clicked. Add styling and glow effects to equipped reward buttons |
-| total | 177      |                                                                                                                               |
+|  8.1  | 2        | Improve reward list UI and UX. Add hover information box for rewards |
+|       | 1        | Add animations to reward buttons |
+|       | 2        | Add possibility to equip game font as a reward |
+| total | 182      |                                                                                                                               |
