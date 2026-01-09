@@ -14,7 +14,6 @@ const Statistics = ({ user }) => {
     useEffect(() => {
         scoreService.getAll().then(data => {
             setHighScores(data)
-            console.log('font: ', equippedFont)
         })
     }, [equippedFont])
 
