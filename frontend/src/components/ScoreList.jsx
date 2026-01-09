@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './fonts.css'
+import guest from '../assets/guest.png'
 
 const ScoreList = ({ scores }) => {
     const [currentTime, setCurrentTime] =  useState(new Date())
@@ -33,19 +34,26 @@ const ScoreList = ({ scores }) => {
 
     return(
         <div className='score_table'>
+
             <div className='score_row'>
-                <div className='score_cell'>User</div>
-                <div className='score_cell'>Game</div>
-                <div className='score_cell'>Score</div>
-                <div className='score_cell'>Time</div>
+                    <div className='score_cell'></div>
+                    <div className='score_cell'>User</div>
+                    <div className='score_cell'>Game</div>
+                    <div className='score_cell'>Score</div>
+                    <div className='score_cell'>Time</div>
+                    <div className='score_cell'></div>
             </div>
 
             <div className='scores'>
                 {scores.map(highscore => {
                 const updatedAt = new Date(highscore.updatedAt)
                 const usernameFont = highscore.user.equippedRewards?.find(r => r.slot === 'USERNAME_FONT')
+                const userPic = highscore.user.image || guest
                 return (
                     <div className='score_row' key={highscore.id}>
+                        <div className='score_cell'>
+                            <img className='profile_pic' src={userPic} alt='Profile picture' />
+                        </div>
                         <div className='score_cell'>
                             <div className={`${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>
                                 {highscore.user.username}
