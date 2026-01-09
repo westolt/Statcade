@@ -29,54 +29,115 @@
   background-color: #1e222b;
   width: 520px;
   height: auto;
-  max-height: 500px;
+  max-height: 580px;
   padding: 1rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 h2 {
-    display: flex;
-    justify-content: center;
-    justify-items: flex-start;
-    font-family: "Questrial", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 30px;
-    color: #ddca8d;
-}
-
-.scoretext {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  justify-items: flex-start;
   font-family: "Questrial", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 30px;
   color: #ddca8d;
+}
+
+.top_list {
   background-color: #181b22;
+  scrollbar-color: #ddca8d #12141a;
+  border-top: 3px solid #292f3b;
+  border-right: 3px solid #292f3b;
+  border-left: 3px solid #292f3b;
+  border-radius: 5px;
+}
+
+.player_info {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #ddca8d;
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
   width: 100%;
-  border: 3px solid #292f3b;
+  height: 45px;
+  border-bottom: 3px solid #292f3b;
 }
 
-.rank {
-  width: 10%;
-  padding: 5px;
-  border-right: 3px solid #292f3b;
-}
-
-.top_name {
-  width: 40%;
-  border-right: 3px solid #292f3b;
-  padding: 5px;
-}
-
-.top_score {
+.player_cell {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  padding: 5px;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
 }
+
+.rank {
+  color: #ffeaa7;
+}
+
+.rank.first {
+  color: #ffeaa7;
+    text-shadow:
+        0 0 1px #ffeaa7,
+        0 0 10px #ffeaa7,
+        0 0 10px #ffeaa7,
+        0 0 20px #ffffff;
+}
+
+.rank.second {
+  color: #ffeaa7;
+    text-shadow:
+        0 0 1px #dadada,
+        0 0 10px #dadada,
+        0 0 10px #dadada,
+        0 0 20px #ffffff;
+}
+
+.rank.third {
+  color: #ffeaa7;
+    text-shadow:
+        0 0 1px #da9555,
+        0 0 10px #da9555,
+        0 0 10px #da9555,
+        0 0 20px #ffffff;
+}
+
+.profile_pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile_pic.first {
+  border: 2px solid #ffeaa7;
+  box-shadow:
+      0 0 4px #ffeaa7;
+}
+
+.profile_pic.second {
+  border: 2px solid #dadada;
+  box-shadow:
+      0 0 4px #dadada;
+}
+
+.profile_pic.third {
+  border: 2px solid #da9555;
+  box-shadow:
+      0 0 4px #da9555;
+}
+
+.player_cell:nth-child(1) { flex: 0 0 40px; border-right: 3px solid #292f3b; }
+.player_cell:nth-child(2) { flex: 0 0 40px; }
+.player_cell:nth-child(3) { flex: 1; border-right: 3px solid #292f3b;}
+.player_cell:nth-child(4) { flex: 1; }
 
 @media only screen and (max-width: 1200px) {
   .game-layout {

@@ -37,7 +37,7 @@ router.get('/game/:id', async (req, res) => {
         include: [
         { 
             model: User,
-            attributes: ['username'],
+            attributes: ['username', 'image'],
             include: [
                 {
                     model: EquippedReward,
