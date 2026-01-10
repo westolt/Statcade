@@ -43,6 +43,7 @@ const LoginFrom = ({ setUser, showMessage }) => {
                     type='text'
                     placeholder='Username'
                     value={username}
+                    maxLength={10}
                     onChange={({ target }) => setUsername(target.value)}
                     />
                 <label className="sr-only">Password</label>

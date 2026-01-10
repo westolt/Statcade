@@ -56,7 +56,11 @@ router.post('/', async (req, res, next) => {
     try {
         const { username, password } = req.body
 
-        if (!password || password.length < 3) {
+        if (username.length > 10) {
+            return res.status(400).json({ error: 'Username too long' })
+        }
+
+        if (!password || password.length < 6) {
             return res.status(400).json({ error: 'Password too short' })
         }
 

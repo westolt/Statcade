@@ -148,7 +148,21 @@ h2 {
 
 @media only screen and (max-width: 1200px) {
   .game-layout {
-        flex-direction: column;
-        align-items: center;
-    }
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gamescreen-position {
+    width: 810px;
+    height: 680px;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .emptyspace-position,
+  .scoreboard-position {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
 }

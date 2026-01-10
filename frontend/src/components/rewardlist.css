@@ -2,7 +2,6 @@
     min-width: 400px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     border: 5px solid #292f3b;
     background-color: #1e222b;
     gap: 0.5em;

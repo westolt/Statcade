@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import userService from '../services/users'
 import scoreService from '../services/scores'
 import UserStatistics from './UserStatistics'
@@ -14,7 +14,7 @@ import equippedRewardsService from '../services/equipped_rewards'
 const User = ({ user, setUser}) => {
     const [scores, setScores] = useState([])
     const [userScores, setUserScores] = useState([])
-    const [profilePictureFile, setProfilePictureFile] = useState(null)
+    const fileInputRef = useRef(null)
     const [isVisible, setIsVisible] = useState(true)
     const [message, setMessage] = useState(null)
     const getEquippedReward = (user, slot) => {
@@ -41,17 +41,21 @@ const User = ({ user, setUser}) => {
         setUser(null)
         setScores([])
         setUserScores([])
-        setProfilePictureFile(null)
         userService.setToken(null)
         equippedRewardsService.setToken(null)
         window.localStorage.removeItem('loggedUser')
     }
 
-    const handleClick = async () => {
-        if (!profilePictureFile) return
+    const handleImageButtonClick = () => {
+        fileInputRef.current.click()
+    }
+
+    const handleFileSelected = async (e) => {
+        const file = e.target.files[0]
+        if (!file) return
 
         const formData = new FormData()
-        formData.append('image', profilePictureFile)
+        formData.append('image', file)
 
         const updated = await userService.updateImage(formData)
         const updatedUser = { ...user, image: updated.image }
@@ -76,18 +80,22 @@ const User = ({ user, setUser}) => {
     <div className="user_box">
         {user ? (
             <>
-            <p className={`name ${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>{user.username}</p>
-            <button onClick={handleLogout}>Logout</button>
+            <div className='top_row'>
+                <p className={`name ${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>{user.username}</p>
+                <button className='logout_position' onClick={handleLogout}>Logout</button>
+            </div>
             <ImageButton
                 image={user?.image || guest}
-                onClick={handleClick}
+                onClick={handleImageButtonClick}
             />
             <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => setProfilePictureFile(e.target.files[0])}
+                onChange={handleFileSelected}
+                ref={fileInputRef}
+                hidden
             />
-            <UserStatistics userScores={userScores}/>
+            <UserStatistics userScores={userScores} scores={scores} />
             </>
         ) : (
             <>

@@ -9,7 +9,6 @@
     max-height: 500px;
     padding: 1rem;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 h2 {
@@ -90,7 +89,7 @@ input {
 }
 
 .score_cell {
-  flex: 1;
+  flex: 1 1 0;
   text-align: left;
   padding: 3px;
   overflow: hidden;
@@ -108,4 +107,10 @@ input {
 .score_cell:nth-child(3) { flex: 1; border-right: 3px solid #292f3b; }
 .score_cell:nth-child(4) { flex: 1; text-align: center; border-right: 3px solid #292f3b; }
 .score_cell:nth-child(5) { flex: 1; text-align: left; }
-.score_cell:nth-child(6) { flex: 0 0 8px; }
+.score_cell:nth-child(6) { flex: 0 0 9px; }
+
+@-moz-document url-prefix() {
+    .score_cell:nth-child(6) {
+        display: none;
+    }
+}

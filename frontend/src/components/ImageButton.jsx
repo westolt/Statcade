@@ -1,5 +1,4 @@
 const ImageButton = ({ image, onClick }) => {
-
     return(
         <button
             className="image-button"

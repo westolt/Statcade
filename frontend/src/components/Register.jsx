@@ -52,8 +52,9 @@ const Register = ({ setUser, showMessage }) => {
                  <label className="sr-only">Register username</label>
                     <input
                     type='text'
-                    placeholder='Username'
+                    placeholder='Username (max 10 characters)'
                     value={username}
+                    maxLength={10}
                     onChange={({ target }) => setUsername(target.value)}
                     />
                 </div>
@@ -61,8 +62,9 @@ const Register = ({ setUser, showMessage }) => {
                  <label className="sr-only">Register password</label>
                     <input
                     type='password'
-                    placeholder='Password'
+                    placeholder='Password (min 6 characters)'
                     value={password}
+                    minLength={6}
                     onChange={({ target }) => setPassword(target.value)}
                     />
                 </div>
@@ -72,6 +74,7 @@ const Register = ({ setUser, showMessage }) => {
                     type='password'
                     placeholder='Verify password'
                     value={password2}
+                    minLength={6}
                     onChange={({ target }) => setPassword2(target.value)}
                     />
                 </div>

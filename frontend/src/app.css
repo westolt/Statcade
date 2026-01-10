@@ -16,6 +16,10 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.header a {
+    text-decoration: none;
+}
+
 .navbar {
     width: 100%;
     display: flex;
@@ -27,12 +31,14 @@ body {
 
 .nav-game {
     width: 50%;
-    justify-items: end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-reward {
     width: 50%;
-    justify-items: start;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .navbar-button {

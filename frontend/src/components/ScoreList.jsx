@@ -41,7 +41,9 @@ const ScoreList = ({ scores }) => {
                     <div className='score_cell'>Game</div>
                     <div className='score_cell'>Score</div>
                     <div className='score_cell'>Time</div>
-                    <div className='score_cell'></div>
+                    {scores.length > 7 && (
+                        <div className='score_cell'></div>
+                    )}
             </div>
 
             <div className='scores'>

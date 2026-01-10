@@ -9,23 +9,34 @@
     width: 200px;
 }
 
+.top_row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .name {
     font-family: "Questrial", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 30px;
+    font-size: clamp(20px, 4vw, 30px);
     color: #ddca8d;
     text-align: center;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .image-button {
     position: relative;
+    width: 200px;
     padding: 0;
     border: none;
     background: none;
     cursor: pointer;
     border-radius: 8px;
+    overflow: hidden;
 }
 
 .picture {
@@ -109,6 +120,19 @@
     width: 100%;
     border-top: 3px solid #262b36;
     padding: 5px;
+    box-sizing: border-box
+}
+
+.no_stats {
+    display: flex;
+    flex-direction: row;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ddca8d;
+    background-color: #181b22;
+    width: 100%;
+    padding: 5px;
 }
 
 .login {
@@ -157,6 +181,10 @@ button {
     padding: 3px;
     outline: none; 
     cursor: pointer;
+}
+
+.logout_position {
+    margin-left: auto;
 }
 
 button:hover {
