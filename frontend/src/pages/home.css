@@ -24,16 +24,16 @@
     width: 40%;
 }
 
-.textbox {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 .stats-position {
     display: flex;
     justify-content: center;
     width: 30%;
+}
+
+.textbox {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1200px) {

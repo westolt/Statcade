@@ -24,19 +24,15 @@ const Play = ({ games }) => {
     }
 
     return (
-        <div>
-            <div className='playbox'>
-                <div className='game-layout'>
-                    <div className='emptyspace-position'></div>
-                    <div className='gamescreen-position'>
-                        <GameScreen game={game}/>
-                    </div>
-                    <div className='scoreboard-position'>
-                        <Scoreboard scoreboard={scoreboard} />
-                    </div>
+        <div className='playbox'>
+            <div className='game-layout'>
+                <div className='emptyspace-position'></div>
+                <div className='gamescreen-position'>
+                    <GameScreen game={game}/>
                 </div>
-                <Textbox message={game.howToPlay}/>
+                <div className='scoreboard-position'><Scoreboard scoreboard={scoreboard} /></div>
             </div>
+            <div className='textbox'><Textbox message={game.howToPlay}/></div>
         </div>
     )
 }
