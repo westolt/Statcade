@@ -1,3 +1,10 @@
+.loading {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ddca8d;
+}
+
 .playbox {
     display: flex;
     flex-direction: column;

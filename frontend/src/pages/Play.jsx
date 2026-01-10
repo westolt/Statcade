@@ -10,17 +10,19 @@ const Play = ({ games }) => {
     const id = useParams().id
     const game = games.find(g => g.id === Number(id))
     const [scoreboard, setScoreboard] = useState([])
+    const [loadingScores, setLoadingScores] = useState(true)
 
     useEffect(() => {
         if (game) {
             scoreService.getGame(game.id).then(data => {
                 setScoreboard(data)
+                setLoadingScores(false)
             })
     }
     }, [game])
 
     if (!game) {
-        return <h2>Game not found</h2>
+        return <div>Loading game...</div>
     }
 
     return (
@@ -30,7 +32,7 @@ const Play = ({ games }) => {
                 <div className='gamescreen-position'>
                     <GameScreen game={game}/>
                 </div>
-                <div className='scoreboard-position'><Scoreboard scoreboard={scoreboard} /></div>
+                <div className='scoreboard-position'><Scoreboard scoreboard={scoreboard} loading={loadingScores} /></div>
             </div>
             <div className='textbox'><Textbox message={game.howToPlay}/></div>
         </div>

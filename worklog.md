@@ -83,4 +83,7 @@
 |       | 1        | Update username font color in the top 10 scoreboard list |
 |       | 2        | Add profile picture to Statistics list and fix alignment issues in statistic score rows |
 |       | 2        | Add profile pictures to top 10 scoreboard list and add glow effect to top 3 players |
-| total | 188      |                                                                                                                               |
+| 10.1  | 3        | Fix profile picture button and fine-tune UI layout |
+|       | 3        | Fix components positions on smaller screens |
+|       | 1        | Add message after game ends |
+| total | 195      |                                                                                                                               |

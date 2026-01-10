@@ -1,7 +1,10 @@
 import './fonts.css'
 import guest from '../assets/guest.png'
 
-const Scoreboard = ({ scoreboard}) => {
+const Scoreboard = ({ scoreboard, loading }) => {
+    if (loading) {
+        return <div className="loading">Loading scoreboard...</div>
+    }
     return(
         <div>
             <div className='scoreboard'>
