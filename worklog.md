@@ -79,4 +79,8 @@
 |  8.1  | 2        | Improve reward list UI and UX. Add hover information box for rewards |
 |       | 1        | Add animations to reward buttons |
 |       | 2        | Add possibility to equip game font as a reward |
-| total | 182      |                                                                                                                               |
+|  9.1  | 1        | Update username font color in statistics list when font is equipped |
+|       | 1        | Update username font color in the top 10 scoreboard list |
+|       | 2        | Add profile picture to Statistics list and fix alignment issues in statistic score rows |
+|       | 2        | Add profile pictures to top 10 scoreboard list and add glow effect to top 3 players |
+| total | 188      |                                                                                                                               |
