@@ -83,11 +83,11 @@ test('shows user scores', async () => {
 test('logout clears user data', async () => {
   render(<App />)
 
-  const userName = await screen.findByText('testuser', { selector: 'p.name' })
-  expect(userName).toBeInTheDocument()
-
   const user = userEvent.setup()
-  await user.click(screen.getByText('Logout'))
+  const logoutButton = await screen.findByRole('button', { name: /logout/i })
+  expect(logoutButton).toBeInTheDocument()
+
+  await user.click(logoutButton)
 
   expect(screen.getByText(/login/i)).toBeInTheDocument()
   expect(window.localStorage.getItem('loggedUser')).toBeNull()

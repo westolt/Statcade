@@ -16,7 +16,7 @@ const Home = ({ user, setUser, equip, unequip, games, mode }) => {
             <div className='lists'>
                 <div>
                     {mode === 'GAMES' && (
-                        <GameList games={games} hoverChange={setHoverId} />
+                        <GameList games={games} hoverChange={setHoverId} user={user} />
                     )}
                 </div>
                 <div>

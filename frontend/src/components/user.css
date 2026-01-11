@@ -21,11 +21,12 @@
     font-style: normal;
     font-size: clamp(20px, 4vw, 30px);
     color: #ddca8d;
-    text-align: center;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 80%;
+}
+
+.logout_position {
+    margin-left: auto;
+    width: 26%;
 }
 
 .image-button {
@@ -181,10 +182,6 @@ button {
     padding: 3px;
     outline: none; 
     cursor: pointer;
-}
-
-.logout_position {
-    margin-left: auto;
 }
 
 button:hover {

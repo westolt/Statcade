@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import GameButton from './GameButton'
 import './gamelist.css'
 
-const GameList = ({ games, hoverChange }) => {
+const GameList = ({ games, hoverChange, user }) => {
     const navigate = useNavigate()
 
     const handleClick = (id) => {
@@ -16,8 +16,8 @@ const GameList = ({ games, hoverChange }) => {
             {games.map(game => 
                 <GameButton
                     key={game.id}
-                    name={game.name}
-                    image={game.thumbnail}
+                    game={game}
+                    user={user}
                     onClick={() => handleClick(game.id)}
                     onMouseEnter={()=>hoverChange(game)}
                     onMouseLeave={()=>hoverChange(null)}

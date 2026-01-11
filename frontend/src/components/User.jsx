@@ -81,7 +81,7 @@ const User = ({ user, setUser}) => {
         {user ? (
             <>
             <div className='top_row'>
-                <p className={`name ${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>{user.username}</p>
+                <div className={`name ${usernameFont ? `font-${usernameFont.rewardId}` : ''}`}>{user.username}</div>
                 <button className='logout_position' onClick={handleLogout}>Logout</button>
             </div>
             <ImageButton
@@ -99,7 +99,7 @@ const User = ({ user, setUser}) => {
             </>
         ) : (
             <>
-            <p className='name'>Guest</p>
+            <div className='name'>Guest</div>
             <img className="picture" src={guest} alt="Profile picture" />
             <button onClick={() => setIsVisible(true)}>Login</button>
             <button onClick={() => setIsVisible(false)}>Register</button>
