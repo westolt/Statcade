@@ -7,6 +7,8 @@
 
 [Worklog](https://github.com/westolt/Statcade/blob/main/worklog.md)
 
+![Home Screenshot](./screenshots/home_screen.png)
+
 **Statcade** is a full-stack, web-based arcade platform where users can play mini-games, save their highscores and unlock rewards.
 
 An account is **not required** to play games, but it is needed to save highscores and unlock rewards. 
@@ -14,6 +16,8 @@ An account is **not required** to play games, but it is needed to save highscore
 ## Current Games:
 
 - [Typing test](https://github.com/westolt/TypingGame.git) (built with React)
+
+![Game Screenshot](./screenshots/play_screen.png)
 
 ---
 
@@ -35,6 +39,9 @@ An account is **not required** to play games, but it is needed to save highscore
 - Cloudinary (profile pictures)
 
 ## Features
+
+![Logged In Screenshot](./screenshots/logged_in.png)
+
 - User registration and login using token-based authentication
 - Users can play games (login not required)
 - Highscores are saved after a game ends (requires login)
@@ -45,6 +52,9 @@ An account is **not required** to play games, but it is needed to save highscore
 - Top 10 highscores are displayed on the Play page for each game
 - Reward system where users can unlock and equip rewards
 - Currently available rewards change username and game font styles
+
+![Rewards Screenshot](./screenshots/rewards.png)
+
 - TextBox component:
   - Greets the user
   - Shows game and reward information on hover
@@ -53,6 +63,8 @@ An account is **not required** to play games, but it is needed to save highscore
   - The uploaded image is automatically set as the profile picture
   - The previous profile picture is deleted from Cloudinary
 - Responsive UI supporting different screen sizes (horizontal and vertical)
+
+![Vertical Mobile Screenshot](./screenshots/vertical_screen.png)
 
 ## Planned Improvements / Not Yet Implemented
 
