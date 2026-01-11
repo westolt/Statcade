@@ -41,7 +41,7 @@ const userExtractor = async (req, res, next) => {
 
 const upload = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: '1000000'},
+    limits: { fileSize: 1_000_000},
     fileFilter: (req, file, cb) => {
         const fileTypes = /jpeg|jpg|png/
         const mimeType = fileTypes.test(file.mimetype)

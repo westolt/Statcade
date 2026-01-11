@@ -29,7 +29,7 @@ const LoginFrom = ({ setUser, showMessage }) => {
                 setUsername('')
                 setPassword('')
             } catch {
-                showMessage ('Wrong credentials')
+                showMessage ('Invalid username or password')
                 return
             }
         }

@@ -9,6 +9,16 @@ const Register = ({ setUser, showMessage }) => {
     const handleRegister = async event => {
         event.preventDefault()
 
+        if (username <= 0) {
+            showMessage('Username can not be empty!')
+            return
+        }
+
+        if (username > 10) {
+            showMessage('Username too long!')
+            return
+        }
+
         if (!password || password.length < 3) {
             showMessage('Password too short!')
             return

@@ -56,8 +56,8 @@ router.post('/', async (req, res, next) => {
     try {
         const { username, password } = req.body
 
-        if (username.length > 10) {
-            return res.status(400).json({ error: 'Username too long' })
+        if (username.length <= 0 || username.length > 10) {
+            return res.status(400).json({ error: 'Username invalid' })
         }
 
         if (!password || password.length < 6) {
