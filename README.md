@@ -11,6 +11,10 @@
 
 **Statcade** is a full-stack, web-based arcade platform where users can play mini-games, save their highscores and unlock rewards.
 
+https://github.com/user-attachments/assets/879a8699-a024-4831-9f85-de07af8d22b2
+
+
+
 An account is **not required** to play games, but it is needed to save highscores and unlock rewards. 
 
 ## Current Games:
