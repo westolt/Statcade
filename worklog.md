@@ -14,7 +14,7 @@
 |       | 1        | Edit Play page on frontend to display the game                                                                                |
 | 13.11 | 1        | Improve frontend development environment (add proxy rule). Investigate issue with games not loading after refresh             |
 |       | 3        | Study css (Flexbox) from YouTube. Refactor css files. Fix layout when using application on mobile                             |
-| 17.11 | 3        | Study how to change text when hovering over a button. Credit to Bitfumes for the tutorial: [link](https://www.youtube.com/watch?v=GSHBhIqylxM). Implement hover-based game description in TextBox |
+| 17.11 | 3        | Study how to change text when hovering over a button. Used this tutorial: Bitfumes [link](https://www.youtube.com/watch?v=GSHBhIqylxM). Implement hover-based game description in TextBox |
 | 19.11 | 1        | Make header a link to Home page, add how_to_play column to games table and TextBox to Play page                               |
 |       | 4        | Fix the issue where play page does not find the game after refreshing                                                         |
 | 20.11 | 2        | Write backend tests for games API and set up initial test data with beforeEach                                                |
@@ -30,7 +30,7 @@
 |       | 2        | Add high score list to user box                                                                                               |
 | 12.12 | 1        | Investigate why logging in is not possible in the production version. Solution: I had not set the SECRET variable in Fly.io   |
 |       | 1        | Add profile_picture column to User model via migration                                                                        |
-| 13.12 | 1        | Study how to upload a profile picture and delete the old image when uploading a new one for a user on Node, Sequelize, and React. Used these videos: [link1](https://www.youtube.com/watch?v=sVYrH166LXM) and [link2](https://www.youtube.com/watch?v=kcQWzRX37ag)|
+| 13.12 | 1        | Study how to upload a profile picture and delete the old image when uploading a new one for a user on Node, Sequelize, and React. Used these videos: Great Adib [link1](https://www.youtube.com/watch?v=sVYrH166LXM) and ProgrammingKnowledge [link2](https://www.youtube.com/watch?v=kcQWzRX37ag)|
 |       | 2        | Add controller and PUT route for uploading profile pictures. Test with Postman to confirm uploads work                       |
 |       | 2        | Investigate why new profile pictures are not showing in the application. Still have no idea, but will continue troubleshooting tomorrow |
 | 14.12 | 2        | Fix the issue with displaying profile pictures by adding the missing static route proxy configuration to `vite.config.js`.    |
@@ -38,14 +38,14 @@
 |       | 4        | Fix token assignment on registration and correct old image deletion                                                           |
 | 15.12 | 2        | Add score router for gameId in backend and add top 10 scoreboard to games    |
 | 20.12 | 1        | Investigate how to upload profile pictures to cloud service. Add cloudinary.js util    |
-| 21.12 | 4        | Learn more how to use Cloudinary. Followed this [tutorial](https://cloudinary.com/blog/guest_post/upload-images-to-cloudinary-with-node-js-and-react) from Cloudinary's website on how to upload images to Cloudinary using multer memoryStorage. Refactor image deletion. Remove static profile_pictures folder from backend and create profile_pictures and test folders in Cloudinary |
+| 21.12 | 4        | Learn more how to use Cloudinary. Followed Ifeoma Imoh's [tutorial](https://cloudinary.com/blog/guest_post/upload-images-to-cloudinary-with-node-js-and-react) from Cloudinary's website on how to upload images to Cloudinary using multer memoryStorage. Refactor image deletion. Remove static profile_pictures folder from backend and create profile_pictures and test folders in Cloudinary |
 | 22.12 | 9        | Add unit tests to frontend and backend   |
 | 23.12 | 2        | Separate prod, dev and test environments  |
-|       | 2        | Add Stats.jsx that shows statistics. Got help from this [answer](https://stackoverflow.com/questions/77901322/javascript-current-time-not-getting-updated-in-react-js) from Stack overflow to set properly time for high scores |
+|       | 2        | Add Stats.jsx that shows statistics. Got help from Thilini Wathsala's [answer](https://stackoverflow.com/questions/77901322/javascript-current-time-not-getting-updated-in-react-js) from Stack overflow to set properly time for high scores |
 |       | 3        | Refactor Stats.jsx and design how to display statistics  |
 |       | 2        | Work with css  |
 | 24.12 | 4        | Refactor and redesign User.jsx, improve top 10 scoreboard appearance, update font-family globally except in TextBox. |
-| 25.12 | 2        | Design a new typing game integrated into Statcade. Repository: [TypingGame](https://github.com/westolt/TypingGame.git). Plan game mechanics and reward system. Statecade home page consists of two sections: games and rewards. User unlocks a special font by reaching a WPM goal. Investigate possible technologies and libraries. Start experimenting with JavaScript canvas |
+| 25.12 | 2        | Design a new typing game integrated into Statcade. Repository: [TypingGame](https://github.com/westolt/TypingGame.git). Plan game mechanics and reward system. Statcade home page consists of two sections: games and rewards. User unlocks a special font by reaching a WPM goal. Investigate possible technologies and libraries. Start experimenting with JavaScript canvas |
 |       | 2        | Experiment with JavaScript canvas. Discover that the <canvas> element does not support text wrapping well. Decide to switch to Phaser |
 |       | 1        | Try working with Phaser. Realize that it requires too much learning and external help. Decide to implement the game with React instead  |
 |       | 3        | Implement core game logic. Game randomly selects a paragraph from a JSON file. User can start typing and the timer starts counting down |
@@ -58,7 +58,7 @@
 |       | 2        | Display current WPM in real time while typing. Fix calculation formula and ensure WPM resets correctly when starting a new game |
 |       | 2        | Add ability to save user score to backend via scoreService. Fix handleTyping logic to be compatible with async score submission. |
 | 28.12 | 4        | Refactor message display, update registration view, redesign Top 10 scoreboard, and update Home page layout. Improve User.jsx, Login.jsx and Message.jsx styling and replace guest image |
-| 2.1   | 2        | Learn how to create blinking cursor effect with CSS for [TypingGame](https://github.com/westolt/TypingGame.git). A [YouTube tutorial](https://www.youtube.com/watch?v=vsKYZj-XskI&t=1s) was helpful for understanding animations, but using border-left caused the cursor to collide with letters and shift them slightly. Solved this by switching to a ::after pseudo-element, which fixes the issue. Got help from this [video](https://www.youtube.com/watch?v=dIUOWdwwZBw) |
+| 2.1   | 2        | Learn how to create blinking cursor effect with CSS for [TypingGame](https://github.com/westolt/TypingGame.git). A [YouTube tutorial](https://www.youtube.com/watch?v=vsKYZj-XskI&t=1s) made by WittCode was helpful for understanding animations, but using border-left caused the cursor to collide with letters and shift them slightly. Solved this by switching to a ::after pseudo-element, which fixes the issue. Got help from Coding2GO's [video](https://www.youtube.com/watch?v=dIUOWdwwZBw) |
 |       | 6        | Update Typing Game UI and improve typing flow by adding cursor. Add a thumbnail to TypingGame and adjust the homepage layout of UserBox, GameList, TextBox, and Statistics |
 |  3.1  | 3        | Design how to implement award system to Statcade. Evaluate different data models and decide on many-to-many structure between users and rewards  |
 |       | 2        | Add Reward model, migration, and controller, add many-to-many connection between User and Reward through UserReward  |
@@ -73,8 +73,8 @@
 |       | 2        | Move user fetch logic to App.jsx and add equipped_rewards service |
 |       | 3        | Add functionality to equip and unequip username font rewards. Refactor RewardList and RewardButton components and fix failing frontend tests |
 |       | 2        | Implement reward unlock mechanism by adding user_rewards controller and service and frontend handleUnlock function |
-|  7.1  | 3        | Re-evaluate reward unlock design. Initially planned to handle unlock checks in the frontend (App.jsx), which led to adding a user_rewards service on the previous day. After refactoring, move unlock logic to the backend score controller where score submission occurs. Implement reward unlock checks in score.js, remove unused user_rewards service and controller |
-|       | 2        | Fix reward refresh issues after unlocking rewards. Got help from this [YouTube video](https://www.youtube.com/watch?v=r2_A3bh94fY). Add token handling to equipped rewards |
+|  7.1  | 3        | Re-evaluate reward unlock design. Initially planned to handle unlock checks in the frontend (App.jsx), which led to adding a user_rewards service on the previous day. After refactoring, move unlock logic to the backend score controller, where score submission occurs. Implement reward unlock checks in score.js, remove unused user_rewards service and controller |
+|       | 2        | Fix reward refresh issues after unlocking rewards. Got help from dcode's [YouTube video](https://www.youtube.com/watch?v=r2_A3bh94fY). Add token handling to equipped rewards |
 |       | 2        | Improve RewardButton UI and UX. Show reward checkbox only when the reward button is clicked. Add styling and glow effects to equipped reward buttons |
 |  8.1  | 2        | Improve reward list UI and UX. Add hover information box for rewards |
 |       | 1        | Add animations to reward buttons |
@@ -86,4 +86,6 @@
 | 10.1  | 3        | Fix profile picture button and fine-tune UI layout |
 |       | 3        | Fix components positions on smaller screens |
 |       | 1        | Add message after game ends |
-| total | 195      |                                                                                                                               |
+| 11.1  | 2        | Replace Typing Test image with colored text based on equipped GAME_FONT. Restrict registration so that username can not be empty, change error messages |
+|       | 3        | Update README.md: write description, features and tasks that are not yet implemented. Refine text and check for spelling mistakes in README.md and worklog.md with ChatGPT. Add screenshots and a short video of the application in README.md |
+| total | 200      |                                                                                                                               |

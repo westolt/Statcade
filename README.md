@@ -3,7 +3,7 @@
 
 # Statcade
 
-[Application](https://backend-white-bush-6765.fly.dev/)
+[Live Demo](https://backend-white-bush-6765.fly.dev/)
 
 [Worklog](https://github.com/westolt/Statcade/blob/main/worklog.md)
 
@@ -68,7 +68,7 @@ An account is **not required** to play games, but it is needed to save highscore
 
 ## Planned Improvements / Not Yet Implemented
 
-- Token expiration and server-side session handling
+- Token expiration
 - Improved test coverage
 - Slot-based reward selection (currently rewards use shared slots)
 - Improved reward list UX
