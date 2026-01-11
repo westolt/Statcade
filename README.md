@@ -3,7 +3,7 @@
 
 # Statcade
 
-[Link to the application](https://backend-white-bush-6765.fly.dev/)
+[Live application](https://backend-white-bush-6765.fly.dev/)
 
 [Worklog](https://github.com/westolt/Statcade/blob/main/worklog.md)
 
