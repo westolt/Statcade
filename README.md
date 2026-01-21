@@ -19,8 +19,6 @@ An account is **not required** to play games, but it is needed to save highscore
 
 ![Game Screenshot](./screenshots/play_screen.png)
 
----
-
 ## Tech Stack
 
 **Frontend**
